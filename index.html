@@ -122,49 +122,75 @@ async function makePDF(){
   const btn=document.getElementById('pdf'); btn.disabled=true; btn.textContent='Creating…';
   try{
     const L=await logoData();
-    // use the largest font size that still fits on two pages
     const doc=bestPDF(L);
     doc.save(`ATF Price List ${DATA.date}.pdf`);
   } catch(err){ alert('Sorry, the PDF could not be created: '+err.message) }
   btn.disabled=false; btn.textContent='Create PDF';
 }
-// largest font size (7.5 to 11 pt, in quarter points) that fits on two pages
+
+const SEC_ORDER=['TREES','NATIVE TREES','SHRUBS','HEDGING AND SCREENING','FRUIT TREES','EXTRAS'];
+const MAX_FS=11, MIN_FS_WHOLE=7, MIN_FS=7.5;
+function currentGroups(){
+  const groups=DATA.groups.map(g=>({section:g.section,group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
+  if(document.getElementById('xGift').checked) groups.push({section:'EXTRAS',group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
+  if(document.getElementById('xDel').checked) groups.push({section:'EXTRAS',group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
+  return groups;
+}
+// Find the largest font where every section sits wholly on one page (sections may swap pages).
+// If that needs a font under 7pt, fall back to flowing sections across both pages.
 function bestPDF(L){
-  let lo=0, hi=14, best=null;           // fs = 7.5 + 0.25*i
-  const at=i=>buildPDF(7.5+0.25*i,L);
-  const first=at(0); if(first.getNumberOfPages()>2) return first;
-  best=first;
-  while(lo<hi){ const mid=Math.ceil((lo+hi)/2); const d=at(mid); if(d.getNumberOfPages()<=2){lo=mid; best=d} else hi=mid-1; }
-  return best;
+  const groups=currentGroups();
+  const secs=SEC_ORDER.filter(s=>groups.some(g=>g.section===s));
+  // page plans: every way of putting each section on page 1 or page 2, in reading order
+  const plans=[];
+  for(let m=0;m<(1<<secs.length);m++){
+    const p1=secs.filter((s,i)=>!(m>>i&1)), p2=secs.filter((s,i)=>m>>i&1);
+    if(!p1.length) continue;
+    const prefix=p1.every((s,i)=>s===secs[i]);
+    plans.push({pages:p2.length?[p1,p2]:[p1], prefix});
+  }
+  plans.sort((a,b)=>(b.prefix-a.prefix));
+  for(let fs=MAX_FS; fs>=MIN_FS_WHOLE-1e-9; fs-=0.25){
+    for(const plan of plans){
+      if(buildPDF(fs,L,groups,plan.pages,false).fits) return buildPDF(fs,L,groups,plan.pages,true).doc;
+    }
+  }
+  // fallback: flow across pages, largest font that fits two pages
+  for(let fs=MAX_FS; fs>=MIN_FS; fs-=0.25){ const r=buildPDF(fs,L,groups,null,false); if(r.pages<=2) return buildPDF(fs,L,groups,null,true).doc; }
+  return buildPDF(MIN_FS,L,groups,null,true).doc;
 }
 const UW={};
-function buildPDF(FS,L){
+function buildPDF(FS,L,groups,pages,draw){
   const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4'});
   const GREEN=[23,64,43], ACC=[0,118,64], INK=[27,27,27], GREY=[95,95,95];
   const M=10, W=210, H=297, GAP=5, COLW=(W-2*M-2*GAP)/3, LH=FS*0.42, HS=FS*1.12;
   const date=fmtDate(DATA.date), month=new Date(DATA.date+'T00:00:00').toLocaleDateString('en-AU',{month:'long',year:'numeric'}).toUpperCase();
-  doc.setFillColor(...GREEN); doc.rect(M,M,W-2*M,17,'F');
-  const lh=12, lw=lh*L.w/L.h; doc.addImage(L.url,'PNG',M+3,M+2.5,lw,lh);
-  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(15);
-  doc.text('PRICE LIST '+month,W-M-3,M+8,{align:'right'});
-  doc.setFont('helvetica','normal'); doc.setFontSize(7);
-  doc.text('168 Gum Flat Rd, Carey Gully · 0452 667 175 · sales@adelaidetreefarm.com.au · adelaidetreefarm.com.au',W-M-3,M+13.5,{align:'right'});
-  doc.setTextColor(...INK); doc.setFontSize(7.2);
-  doc.text(`Prices updated ${date}. Stock sells quickly, please call to check.`,M,M+21.5);
-  doc.setFont('helvetica','normal'); const s2=' (eg 30cm, 90L), not the height of the tree.'; const w2=doc.getTextWidth(s2);
-  doc.text(s2,W-M,M+21.5,{align:'right'}); doc.setFont('helvetica','bold'); doc.text('Sizes are the pot or bag size',W-M-w2,M+21.5,{align:'right'});
-  doc.setDrawColor(...ACC); doc.setLineWidth(0.3); doc.line(M,M+23.3,W-M,M+23.3);
-  doc.setFont('helvetica','bold'); doc.setFontSize(7.2); doc.setTextColor(...GREEN);
-  const st=doc.splitTextToSize(DATA.statement||'',W-2*M); doc.text(st,M,M+27);
-  let top=M+29+st.length*3, col=0, y=top; const bottom=H-M;
-  const nextCol=()=>{col++; if(col>2){doc.addPage(); col=0; top=M+2} y=top};
+  doc.setFont('helvetica','bold'); doc.setFontSize(7.2);
+  const st=doc.splitTextToSize(DATA.statement||'',W-2*M);
+  if(draw){
+    doc.setFillColor(...GREEN); doc.rect(M,M,W-2*M,17,'F');
+    const lh=12, lw=lh*L.w/L.h; doc.addImage(L.url,'PNG',M+3,M+2.5,lw,lh);
+    doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(15);
+    doc.text('PRICE LIST '+month,W-M-3,M+8,{align:'right'});
+    doc.setFont('helvetica','normal'); doc.setFontSize(7);
+    doc.text('168 Gum Flat Rd, Carey Gully · 0452 667 175 · sales@adelaidetreefarm.com.au · adelaidetreefarm.com.au',W-M-3,M+13.5,{align:'right'});
+    doc.setTextColor(...INK); doc.setFontSize(7.2);
+    doc.text(`Prices updated ${date}. Stock sells quickly, please call to check.`,M,M+21.5);
+    doc.setFont('helvetica','normal'); const s2=' (eg 30cm, 90L), not the height of the tree.'; const w2=doc.getTextWidth(s2);
+    doc.text(s2,W-M,M+21.5,{align:'right'}); doc.setFont('helvetica','bold'); doc.text('Sizes are the pot or bag size',W-M-w2,M+21.5,{align:'right'});
+    doc.setDrawColor(...ACC); doc.setLineWidth(0.3); doc.line(M,M+23.3,W-M,M+23.3);
+    doc.setFont('helvetica','bold'); doc.setFontSize(7.2); doc.setTextColor(...GREEN); doc.text(st,M,M+27);
+  }
+  const firstTop=M+29+st.length*3, bottom=H-M;
+  let top=firstTop, col=0, y=top, page=1, overflow=false;
+  const newPage=()=>{ page++; if(draw) doc.addPage(); col=0; top=M+2; y=top; };
+  const nextCol=()=>{ col++; if(col>2){ if(pages) overflow=true; newPage(); } y=top; };
   const x=()=>M+col*(COLW+GAP);
   function wrapTokens(tokens){
     const lines=[]; let line=[], lw=0;
     tokens.forEach(tok=>{
-      doc.setFont('helvetica',tok.s); doc.setFontSize(FS);
       tok.t.split(/(\s+)/).forEach(w=>{ if(!w)return;
-        const key=tok.s+'|'+w; if(UW[key]===undefined) UW[key]=doc.getStringUnitWidth(w);
+        const key=tok.s+'|'+w; if(UW[key]===undefined){ doc.setFont('helvetica',tok.s); UW[key]=doc.getStringUnitWidth(w); }
         const ww=UW[key]*FS/doc.internal.scaleFactor;
         if(lw+ww>COLW && w.trim()){ lines.push(line); line=[]; lw=0; }
         if(!line.length && !w.trim())return;
@@ -174,33 +200,39 @@ function buildPDF(FS,L){
     if(line.length)lines.push(line); return lines;
   }
   function drawLines(lines){
-    lines.forEach(line=>{ let xx=x(); line.forEach(p=>{doc.setFont('helvetica',p.s); doc.setFontSize(FS); doc.setTextColor(...p.c); doc.text(p.t,xx,y); xx+=p.w}); y+=LH; });
+    lines.forEach(line=>{ if(draw){ let xx=x(); line.forEach(p=>{doc.setFont('helvetica',p.s); doc.setFontSize(FS); doc.setTextColor(...p.c); doc.text(p.t,xx,y); xx+=p.w}); } y+=LH; });
   }
-  const groups=DATA.groups.map(g=>({section:g.section,group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
-  if(document.getElementById('xGift').checked) groups.push({group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
-  if(document.getElementById('xDel').checked) groups.push({group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
-  let lastSec=null;
-  groups.forEach(g=>{
-    if(g.section && g.section!==lastSec){
-      lastSec=g.section; const bh=HS*0.62;
-      if(y+bh+HS*1.2>bottom) nextCol();
-      if(y>top+0.1) y+=1.5;
-      doc.setFillColor(...GREEN); doc.rect(x(),y,COLW,bh,'F');
-      doc.setFont('helvetica','bold'); doc.setFontSize(HS*1.1); doc.setTextColor(255,255,255);
-      doc.text(g.section,x()+1.5,y+bh*0.72); y+=bh+2.2;
-    }
-    const blocks=g.items.map(it=>{const t=[]; if(it.name)t.push({t:it.name+' ',s:'bold',c:INK}); if(it.note)t.push({t:it.note+'. ',s:'italic',c:GREY}); t.push({t:it.prices,s:'normal',c:INK}); return wrapTokens(t)});
-    const first=blocks[0].length*LH+HS*0.55+1.6;
-    if(y+first>bottom) nextCol();
-    y+=HS*0.2; doc.setFont('helvetica','bold'); doc.setFontSize(HS); doc.setTextColor(...ACC); doc.text(g.group,x(),y); y+=HS*0.43;
-    blocks.forEach(b=>{ if(y+b.length*LH>bottom){ nextCol(); } drawLines(b); y+=LH*0.2; });
-  });
-  return doc;
+  function layGroups(list){
+    let lastSec=null;
+    list.forEach(g=>{
+      if(g.section && g.section!=='EXTRAS' && g.section!==lastSec){
+        lastSec=g.section; const bh=HS*0.62;
+        if(y+bh+HS*1.2>bottom) nextCol();
+        if(y>top+0.1) y+=1.5;
+        if(draw){ doc.setFillColor(...GREEN); doc.rect(x(),y,COLW,bh,'F');
+          doc.setFont('helvetica','bold'); doc.setFontSize(HS*1.1); doc.setTextColor(255,255,255); doc.text(g.section,x()+1.5,y+bh*0.72); }
+        y+=bh+2.2;
+      }
+      const blocks=g.items.map(it=>{const t=[]; if(it.name)t.push({t:it.name+' ',s:'bold',c:INK}); if(it.note)t.push({t:it.note+'. ',s:'italic',c:GREY}); t.push({t:it.prices,s:'normal',c:INK}); return wrapTokens(t)});
+      const first=blocks[0].length*LH+HS*0.55+1.6;
+      if(y+first>bottom) nextCol();
+      y+=HS*0.2; if(draw){ doc.setFont('helvetica','bold'); doc.setFontSize(HS); doc.setTextColor(...ACC); doc.text(g.group,x(),y); } y+=HS*0.43;
+      blocks.forEach(b=>{ if(y+b.length*LH>bottom){ nextCol(); } drawLines(b); y+=LH*0.2; });
+    });
+  }
+  if(pages){
+    pages.forEach((secs,pi)=>{
+      if(pi>0) newPage();
+      layGroups(groups.filter(g=>secs.includes(g.section)).sort((a,b)=>SEC_ORDER.indexOf(a.section)-SEC_ORDER.indexOf(b.section)));
+    });
+  } else layGroups(groups);
+  return {doc, fits:!overflow && page<=2, pages:page};
 }
 document.getElementById('pdf').onclick=makePDF;
 ['xGift','xDel'].forEach(id=>{const el=document.getElementById(id); try{el.checked=localStorage.getItem('atf-'+id)==='1'}catch(e){} el.addEventListener('change',()=>{try{localStorage.setItem('atf-'+id,el.checked?'1':'0')}catch(e){}})});
 
-fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{DATA=d; document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render();})
+fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(async d=>{DATA=d;
+  if(location.search.includes('export=1')){ OFF=new Set(); render(); const L=await logoData(); document.body.setAttribute('data-pdf',bestPDF(L).output('datauristring')); return; } document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render();})
  .catch(()=>{document.getElementById('asat').textContent='The product list could not be loaded. Please refresh the page.'});
 </script>
 </body>

@@ -1,5 +1,5 @@
 {
- "date": "2026-11-12",
+ "date": "2026-11-13",
  "statement": "Not everything we grow is on this list. We also have a large range of groundcovers, perennials, small shrubs, herbs and garden products on site, so come in and have a look or give us a call.",
  "groups": [
   {
@@ -262,18 +262,6 @@
   },
   {
    "section": "TREES",
-   "group": "FAGUS",
-   "items": [
-    {
-     "title": "Fagus sylvatica \"Purpura Pendula\"",
-     "name": "sylvatica \"Purpura Pendula\"",
-     "prices": "30cm $280 (1 left)",
-     "note": ""
-    }
-   ]
-  },
-  {
-   "section": "TREES",
    "group": "FRAXINUS",
    "items": [
     {
@@ -403,12 +391,6 @@
      "note": ""
     },
     {
-     "title": "Lagerstroemia \"Fantasy\"",
-     "name": "\"Fantasy\"",
-     "prices": "40cm $240 (1 left)",
-     "note": "White flower, grows 9x8m"
-    },
-    {
      "title": "Lagerstroemia \"Lipan\"",
      "name": "\"Lipan\"",
      "prices": "30cm $140",
@@ -447,7 +429,7 @@
     {
      "title": "Lagerstroemia \"Sioux\"",
      "name": "\"Sioux\"",
-     "prices": "30cm $140, 50cm $495 (1 left), 60cm/90L $795",
+     "prices": "30cm $140, 40cm $265, 50cm $495 (1 left), 60cm/90L $795",
      "note": "Pink flower, grows 4 to 5 x 3m"
     },
     {
@@ -555,7 +537,7 @@
     {
      "title": "Magnolia grandiflora \"Teddy Bear\"",
      "name": "grandiflora \"Teddy Bear\"",
-     "prices": "40cm $395",
+     "prices": "25cm $100, 40cm $395",
      "note": ""
     }
    ]
@@ -892,6 +874,18 @@
      "title": "Sequoia sempervirens \"Coast Redwood\"",
      "name": "sempervirens \"Coast Redwood\"",
      "prices": "20cm $40 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "section": "TREES",
+   "group": "SUPER",
+   "items": [
+    {
+     "title": "Super Gem magnolia",
+     "name": "Gem magnolia",
+     "prices": "33cm $220",
      "note": ""
     }
    ]
@@ -1491,7 +1485,7 @@
     {
      "title": "Photinia Robusta",
      "name": "Robusta",
-     "prices": "20cm $30, 25cm $60, 40cm $220 (1 left)",
+     "prices": "20cm $30, 25cm $60, 40cm $220 (1 left), 50cm $450",
      "note": ""
     },
     {
@@ -1534,6 +1528,12 @@
      "title": "Syzygium Lilly Pilly \"Backyard Bliss\"",
      "name": "Lilly Pilly \"Backyard Bliss\"",
      "prices": "20cm $30, 25cm $60 (1 left), 30cm $120, 40cm standard $220 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Syzygium australe \"Green Machine\"",
+     "name": "australe \"Green Machine\"",
+     "prices": "30cm $195",
      "note": ""
     }
    ]
