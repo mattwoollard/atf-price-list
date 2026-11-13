@@ -1,0 +1,1553 @@
+{
+ "date": "2026-11-12",
+ "groups": [
+  {
+   "group": "ACACIA",
+   "items": [
+    {
+     "title": "Acacia cognata \"Lime Magik",
+     "name": "cognata \"Lime Magik",
+     "prices": "$240",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ACER",
+   "items": [
+    {
+     "title": "Acer \"Crimson Sunset\"",
+     "name": "\"Crimson Sunset\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Acer \"Inaba Shidare\" Weeping Standard",
+     "name": "\"Inaba Shidare\" Weeping Standard",
+     "prices": "40cm $320",
+     "note": ""
+    },
+    {
+     "title": "Acer \"Taggerty Sunset\"",
+     "name": "\"Taggerty Sunset\"",
+     "prices": "40cm $265 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer \"Tamuke Yama'",
+     "name": "\"Tamuke Yama'",
+     "prices": "$290 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer \"Viridis\"",
+     "name": "\"Viridis\"",
+     "prices": "40cm $395 (1 left), 60cm $899 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer X freemanii",
+     "name": "X freemanii",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Acer buergerianum \"Trident Maple\"",
+     "name": "buergerianum \"Trident Maple\"",
+     "prices": "30cm $140 (1 left), 40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Acer negundo \"Sensation\"",
+     "name": "negundo \"Sensation\"",
+     "prices": "40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum \"Bloodgood\"",
+     "name": "palmatum \"Bloodgood\"",
+     "prices": "$140 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum \"Japanese maple\"",
+     "name": "palmatum \"Japanese maple\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum \"Red Pygmy\"",
+     "name": "palmatum \"Red Pygmy\"",
+     "prices": "30cm $140 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum \"Sango Kaku / Senkaki\"",
+     "name": "palmatum \"Sango Kaku / Senkaki\"",
+     "prices": "30cm $140, 40cm $240 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum \"Seiryu\"",
+     "name": "palmatum \"Seiryu\"",
+     "prices": "30cm $140, 40cm $320",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum dissectum \"Atropurpureum\"",
+     "name": "palmatum dissectum \"Atropurpureum\"",
+     "prices": "20cm $60 (1 left), 30cm multi graft $320, 40cm $295 (1 left), 100L $995 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum dissectum \"Brocade\"",
+     "name": "palmatum dissectum \"Brocade\"",
+     "prices": "$395",
+     "note": ""
+    },
+    {
+     "title": "Acer palmatum weeping assorted OG",
+     "name": "palmatum weeping assorted OG",
+     "prices": "20cm $80 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer pentaphyllum",
+     "name": "pentaphyllum",
+     "prices": "20cm $40",
+     "note": ""
+    },
+    {
+     "title": "Acer platanoides \"Crimson Sentry\"",
+     "name": "platanoides \"Crimson Sentry\"",
+     "prices": "50cm $320",
+     "note": ""
+    },
+    {
+     "title": "Acer rubrum / plat (unlabelled)",
+     "name": "rubrum / plat (unlabelled)",
+     "prices": "40cm $180",
+     "note": ""
+    },
+    {
+     "title": "Acer saccharum \"Sugar Maple\"",
+     "name": "saccharum \"Sugar Maple\"",
+     "prices": "30cm $140 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer x freemanii \"Jeffersred - Autumn Blaze\"",
+     "name": "x freemanii \"Jeffersred - Autumn Blaze\"",
+     "prices": "23cm $60",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ACMENA",
+   "items": [
+    {
+     "title": "Acmena smithii \"Minor\"",
+     "name": "smithii \"Minor\"",
+     "prices": "20cm $30, 25cm $60",
+     "note": ""
+    },
+    {
+     "title": "Acmena smithii \"Sublime Lilly Pilly\"",
+     "name": "smithii \"Sublime Lilly Pilly\"",
+     "prices": "$140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ALBIZIA",
+   "items": [
+    {
+     "title": "Albizia julibrissin \"Chocolate Fountain\"",
+     "name": "julibrissin \"Chocolate Fountain\"",
+     "prices": "40cm $395",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ARACUCARIA",
+   "items": [
+    {
+     "title": "Aracucaria \"Hoop Pine\"",
+     "name": "\"Hoop Pine\"",
+     "prices": "$50 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ARAUCARIA",
+   "items": [
+    {
+     "title": "Araucaria hetrophylla \"Norfolk Island Pine\"",
+     "name": "hetrophylla \"Norfolk Island Pine\"",
+     "prices": "25cm $50, 30cm $90",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "BACKHOUSIA",
+   "items": [
+    {
+     "title": "Backhousia citriodora",
+     "name": "citriodora",
+     "prices": "$75",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "BANKSIA",
+   "items": [
+    {
+     "title": "Banksia integrifolia “coastal banksia”",
+     "name": "integrifolia “coastal banksia”",
+     "prices": "50cm $495 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "BETULA",
+   "items": [
+    {
+     "title": "Betula pendula \"Silver Birch\"",
+     "name": "pendula \"Silver Birch\"",
+     "prices": "23cm $60 (1 left), 30cm $120, 40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Betula pendula \"Youngii\" Short Standard",
+     "name": "pendula \"Youngii\" Short Standard",
+     "prices": "50cm $295 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Betula pendula \"Youngii\" Tall Standard",
+     "name": "pendula \"Youngii\" Tall Standard",
+     "prices": "100L $920 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "BRACHYCHITON",
+   "items": [
+    {
+     "title": "Brachychiton acerifolius \"Flame Tree\"",
+     "name": "acerifolius \"Flame Tree\"",
+     "prices": "40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Brachychiton poplulenus \"Bella Pink\"",
+     "name": "poplulenus \"Bella Pink\"",
+     "prices": "40cm $160 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "BUXUS",
+   "items": [
+    {
+     "title": "Buxus japonica \"Japanese Box\"",
+     "name": "japonica \"Japanese Box\"",
+     "prices": "20cm $30",
+     "note": ""
+    },
+    {
+     "title": "Buxus topiary cones",
+     "name": "topiary cones",
+     "prices": "50cm $695",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CALLISTEMON",
+   "items": [
+    {
+     "title": "Callistemon \"snow burst\"",
+     "name": "\"snow burst\"",
+     "prices": "$30",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CEDRUS",
+   "items": [
+    {
+     "title": "Cedrus atlantica \"Fastigiata\"",
+     "name": "atlantica \"Fastigiata\"",
+     "prices": "25cm $120 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CEPHALOTAXUS",
+   "items": [
+    {
+     "title": "Cephalotaxus Prostrata",
+     "name": "Prostrata",
+     "prices": "$80",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CERCIS",
+   "items": [
+    {
+     "title": "Cercis canadensis \"Aurelian\"",
+     "name": "canadensis \"Aurelian\"",
+     "prices": "$695 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Cercis canadensis \"Forest Pansy\"",
+     "name": "canadensis \"Forest Pansy\"",
+     "prices": "40cm $265, 50cm $395, 50cm $495",
+     "note": ""
+    },
+    {
+     "title": "Cercis canadensis \"Merlot\"",
+     "name": "canadensis \"Merlot\"",
+     "prices": "30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CORNUS",
+   "items": [
+    {
+     "title": "Cornus kousa Chinese dogwood",
+     "name": "kousa Chinese dogwood",
+     "prices": "20cm $50 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Cornus rubra",
+     "name": "rubra",
+     "prices": "$145 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Cornus sericea \"Yellow Twig\"",
+     "name": "sericea \"Yellow Twig\"",
+     "prices": "20cm $40, 30cm $80 (1 left), 40cm $150 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CORYMBIA",
+   "items": [
+    {
+     "title": "Corymbia ficifolia \"Baby Orange\"",
+     "name": "ficifolia \"Baby Orange\"",
+     "prices": "30cm $140",
+     "note": ""
+    },
+    {
+     "title": "Corymbia ficifolia \"Wildfire\"",
+     "name": "ficifolia \"Wildfire\"",
+     "prices": "30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "COTINUS",
+   "items": [
+    {
+     "title": "Cotinus \"Dusky Maiden\"",
+     "name": "\"Dusky Maiden\"",
+     "prices": "20cm $40",
+     "note": ""
+    },
+    {
+     "title": "Cotinus coggygria \"Grace\"",
+     "name": "coggygria \"Grace\"",
+     "prices": "20cm $40 (1 left), 30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CRATAEGUS",
+   "items": [
+    {
+     "title": "Crataegus \"horizontal hawthorn\"",
+     "name": "\"horizontal hawthorn\"",
+     "prices": "50cm $495",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CUPANIOPSIS",
+   "items": [
+    {
+     "title": "Cupaniopsis anarcardioides \"Tuckeroo\"",
+     "name": "anarcardioides \"Tuckeroo\"",
+     "prices": "30cm $140, 40cm $240, 50cm $495",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CUPRESSOCYPARIS",
+   "items": [
+    {
+     "title": "Cupressocyparis \"Leighton Green\"",
+     "name": "\"Leighton Green\"",
+     "prices": "30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "CUPRESSUS",
+   "items": [
+    {
+     "title": "Cupressus \"Greenstead Magnificent\"",
+     "name": "\"Greenstead Magnificent\"",
+     "prices": "$220 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Cupressus \"Raywoods weeper\"",
+     "name": "\"Raywoods weeper\"",
+     "prices": "$65 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Cupressus Sempervirens Glauca \"Italian Pencil Pine\"",
+     "name": "Sempervirens Glauca \"Italian Pencil Pine\"",
+     "prices": "30cm $140, 40cm $200",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ELAEOCARPUS",
+   "items": [
+    {
+     "title": "Elaeocarpus \"blueberry ash\"",
+     "name": "\"blueberry ash\"",
+     "prices": "$220 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "EUCALYPTUS",
+   "items": [
+    {
+     "title": "Eucalyptus \"Baby Blue\"",
+     "name": "\"Baby Blue\"",
+     "prices": "20cm $30, 40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Eucalyptus caesia \"Silver Princess\"",
+     "name": "caesia \"Silver Princess\"",
+     "prices": "30cm $140 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Eucalyptus leucoxylon \"Eucy Dwarf\"",
+     "name": "leucoxylon \"Eucy Dwarf\"",
+     "prices": "$120",
+     "note": ""
+    },
+    {
+     "title": "Eucalyptus porosa \"Mallee Box\"",
+     "name": "porosa \"Mallee Box\"",
+     "prices": "$120 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "FAGUS",
+   "items": [
+    {
+     "title": "Fagus sylvatica \"Purpura Pendula\"",
+     "name": "sylvatica \"Purpura Pendula\"",
+     "prices": "30cm $280 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "FRAXINUS",
+   "items": [
+    {
+     "title": "Fraxinus angustifolia “Raywood Claret Ash”",
+     "name": "angustifolia “Raywood Claret Ash”",
+     "prices": "23cm $60, 30cm $120 (1 left), 30cm $140",
+     "note": ""
+    },
+    {
+     "title": "Fraxinus pennsylvanica \"Urbanite\"",
+     "name": "pennsylvanica \"Urbanite\"",
+     "prices": "40cm $180 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Fraxinus pennsylvanica “Cimmaron Ash”",
+     "name": "pennsylvanica “Cimmaron Ash”",
+     "prices": "40cm $265 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "GEIJERA",
+   "items": [
+    {
+     "title": "Geijera \"Native willow\"",
+     "name": "\"Native willow\"",
+     "prices": "$120 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "GINKGO",
+   "items": [
+    {
+     "title": "Ginkgo \"Lemonlime Spire\"",
+     "name": "\"Lemonlime Spire\"",
+     "prices": "20cm $65 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Ginkgo biloba \"Maidenhair Tree\"",
+     "name": "biloba \"Maidenhair Tree\"",
+     "prices": "30cm $120, 50cm $495 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Ginkgo biloba “Mariken“",
+     "name": "biloba “Mariken“",
+     "prices": "30cm standard $300, 40cm $495 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "GLEDITSIA",
+   "items": [
+    {
+     "title": "Gleditsia triacanthos \"Limegold\"",
+     "name": "triacanthos \"Limegold\"",
+     "prices": "40cm $265 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Gleditsia triacanthos \"Shademaster\"",
+     "name": "triacanthos \"Shademaster\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Gleditsia triacanthos \"Sunburst\"",
+     "name": "triacanthos \"Sunburst\"",
+     "prices": "40cm $180",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "HAKEA",
+   "items": [
+    {
+     "title": "Hakea laurina",
+     "name": "laurina",
+     "prices": "30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "HIBISCUS",
+   "items": [
+    {
+     "title": "Hibiscus tiliaceus rubra \"Cotton Wood - Native Hibiscus\"",
+     "name": "tiliaceus rubra \"Cotton Wood - Native Hibiscus\"",
+     "prices": "30cm $100, 40cm $240",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "HYDRANGEA",
+   "items": [
+    {
+     "title": "Hydrangea macrophylla \"Love\"",
+     "name": "macrophylla \"Love\"",
+     "prices": "$30 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Hydrangea quercifolia \"Oakleaf hydrangea\"",
+     "name": "quercifolia \"Oakleaf hydrangea\"",
+     "prices": "$60",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "HYMENOSPORUM",
+   "items": [
+    {
+     "title": "Hymenosporum flavum “Native Frangipani”",
+     "name": "flavum “Native Frangipani”",
+     "prices": "30cm $120, 30cm $140 (1 left), 40cm $240 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "JACARANDA",
+   "items": [
+    {
+     "title": "Jacaranda mimosifolia",
+     "name": "mimosifolia",
+     "prices": "30cm $140 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "JUGLANS",
+   "items": [
+    {
+     "title": "Juglans nigra \"Black Walnut\"",
+     "name": "nigra \"Black Walnut\"",
+     "prices": "$295 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "JUNIPER",
+   "items": [
+    {
+     "title": "Juniper \"motherlode\"",
+     "name": "\"motherlode\"",
+     "prices": "$80 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "JUNIPERUS",
+   "items": [
+    {
+     "title": "Juniperus scopulorum \"Blue arrow\"",
+     "name": "scopulorum \"Blue arrow\"",
+     "prices": "30cm $150",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "KAURI",
+   "items": [
+    {
+     "title": "Kauri pine",
+     "name": "pine",
+     "prices": "$180 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "LAGERSTROEMIA",
+   "items": [
+    {
+     "title": "Lagerstroemia \"Acoma\"",
+     "name": "\"Acoma\"",
+     "prices": "30cm $140, 40cm $240, 50cm $550, 60cm squat $895",
+     "note": "White flower, grows 3x3m"
+    },
+    {
+     "title": "Lagerstroemia \"Biloxi\"",
+     "name": "\"Biloxi\"",
+     "prices": "30cm $140, 40cm $240 (1 left), 60cm/90L $795 (1 left), 100L $595 (1 left)",
+     "note": "Pale pink flowers, grows 6x6m"
+    },
+    {
+     "title": "Lagerstroemia \"Enduring Summer\"",
+     "name": "\"Enduring Summer\"",
+     "prices": "20cm $30, 40cm $200",
+     "note": ""
+    },
+    {
+     "title": "Lagerstroemia \"Fantasy\"",
+     "name": "\"Fantasy\"",
+     "prices": "40cm $240 (1 left)",
+     "note": "White flower, grows 9x8m"
+    },
+    {
+     "title": "Lagerstroemia \"Lipan\"",
+     "name": "\"Lipan\"",
+     "prices": "30cm $140",
+     "note": "Light pink flowers, grows 4x3m"
+    },
+    {
+     "title": "Lagerstroemia \"Little Audrey\"",
+     "name": "\"Little Audrey\"",
+     "prices": "$30",
+     "note": ""
+    },
+    {
+     "title": "Lagerstroemia \"Miami\"",
+     "name": "\"Miami\"",
+     "prices": "$180",
+     "note": "Pink flowers, grows 2 to 4 x 2 to 4m"
+    },
+    {
+     "title": "Lagerstroemia \"Natchez\"",
+     "name": "\"Natchez\"",
+     "prices": "30cm $140, 40cm $240, 40cm $265, 40cm XL $295, 50cm $495 (1 left), 60cm/90L $895, 100L $895 (1 left)",
+     "note": "White flower, grows 6 to 8 x 6m"
+    },
+    {
+     "title": "Lagerstroemia \"Osage\"",
+     "name": "\"Osage\"",
+     "prices": "$320",
+     "note": "Pink flowers"
+    },
+    {
+     "title": "Lagerstroemia \"Ruffled Red Magic\"",
+     "name": "\"Ruffled Red Magic\"",
+     "prices": "30cm $140",
+     "note": "Grows 4x2.5m"
+    },
+    {
+     "title": "Lagerstroemia \"Sioux\"",
+     "name": "\"Sioux\"",
+     "prices": "30cm $140, 50cm $495 (1 left), 60cm/90L $795",
+     "note": "Pink flower, grows 4 to 5 x 3m"
+    },
+    {
+     "title": "Lagerstroemia \"Tonto\"",
+     "name": "\"Tonto\"",
+     "prices": "30cm $140, 40cm $240, 150L $1,200 (1 left)",
+     "note": "Hot pink flower, grows 3x3m"
+    },
+    {
+     "title": "Lagerstroemia \"Townhouse\"",
+     "name": "\"Townhouse\"",
+     "prices": "40cm $240",
+     "note": "White flower, grows 8x8m"
+    },
+    {
+     "title": "Lagerstroemia \"Tuscarora\"",
+     "name": "\"Tuscarora\"",
+     "prices": "40cm $240, 40cm $265",
+     "note": "Hot pink flower, grows 6x4m"
+    },
+    {
+     "title": "Lagerstroemia \"Yuma\"",
+     "name": "\"Yuma\"",
+     "prices": "50cm $595 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Lagerstroemia \"Zuni\"",
+     "name": "\"Zuni\"",
+     "prices": "40cm multi trunk $240 (1 left), 50cm $395",
+     "note": "Pink/purple flower, grows 3 to 4 x 3m"
+    }
+   ]
+  },
+  {
+   "group": "LAURUS",
+   "items": [
+    {
+     "title": "Laurus Miles Choice",
+     "name": "Miles Choice",
+     "prices": "35cm $140 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Laurus nobilis \"Bay Tree\"",
+     "name": "nobilis \"Bay Tree\"",
+     "prices": "30cm $120, 40cm $180 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "LEUC",
+   "items": [
+    {
+     "title": "Leuc / protea / pw assorted",
+     "name": "/ protea / pw assorted",
+     "prices": "20cm $40, 25cm $50",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "LIQUIDAMBAR",
+   "items": [
+    {
+     "title": "Liquidambar Formosana evergreen",
+     "name": "Formosana evergreen",
+     "prices": "$140",
+     "note": ""
+    },
+    {
+     "title": "Liquidambar rotundiloba",
+     "name": "rotundiloba",
+     "prices": "$140",
+     "note": ""
+    },
+    {
+     "title": "Liquidambar styraciflua",
+     "name": "styraciflua",
+     "prices": "30cm $80",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "LIRIODENDRON",
+   "items": [
+    {
+     "title": "Liriodendron tulipifera \"Tulip Tree\"",
+     "name": "tulipifera \"Tulip Tree\"",
+     "prices": "50cm $495 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "MAGNOLIA",
+   "items": [
+    {
+     "title": "Magnolia \"Ballerina\"",
+     "name": "\"Ballerina\"",
+     "prices": "60cm/90L $595",
+     "note": ""
+    },
+    {
+     "title": "Magnolia \"Butterflies\"",
+     "name": "\"Butterflies\"",
+     "prices": "$595 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Magnolia \"Exmouth\"",
+     "name": "\"Exmouth\"",
+     "prices": "$1,500 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Magnolia \"Greenback\"",
+     "name": "\"Greenback\"",
+     "prices": "$1,500 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Magnolia Fairy assorted",
+     "name": "Fairy assorted",
+     "prices": "20cm $40",
+     "note": ""
+    },
+    {
+     "title": "Magnolia assorted",
+     "name": "assorted",
+     "prices": "40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Magnolia grandiflora \"Teddy Bear\"",
+     "name": "grandiflora \"Teddy Bear\"",
+     "prices": "40cm $395",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "MALUS",
+   "items": [
+    {
+     "title": "Malus \"Gorgeous\"",
+     "name": "\"Gorgeous\"",
+     "prices": "40cm $265 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Malus \"Raspberry/Ivory Spear\"",
+     "name": "\"Raspberry/Ivory Spear\"",
+     "prices": "30cm $140",
+     "note": ""
+    },
+    {
+     "title": "Malus \"Rejzam/Rejoice\"",
+     "name": "\"Rejzam/Rejoice\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Malus \"Royal Raindrops\" standard",
+     "name": "\"Royal Raindrops\" standard",
+     "prices": "standard $240 (1 left), 30cm $140",
+     "note": ""
+    },
+    {
+     "title": "Malus \"Sugar Tyme\"",
+     "name": "\"Sugar Tyme\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Malus floribunda",
+     "name": "floribunda",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Malus ioensis \"Plena\"",
+     "name": "ioensis \"Plena\"",
+     "prices": "30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "METASEQUOIA",
+   "items": [
+    {
+     "title": "Metasequoia \"Dawn Redwood\"",
+     "name": "\"Dawn Redwood\"",
+     "prices": "40cm $265 (1 left), 50cm $320 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "MORUS",
+   "items": [
+    {
+     "title": "Morus alba \"Pendula\" Weeping Mulberry",
+     "name": "alba \"Pendula\" Weeping Mulberry",
+     "prices": "23cm trained weeping $140",
+     "note": ""
+    },
+    {
+     "title": "Morus unryu \"Contorted mulberry\"",
+     "name": "unryu \"Contorted mulberry\"",
+     "prices": "$140 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "MURRAYA",
+   "items": [
+    {
+     "title": "Murraya paniculata",
+     "name": "paniculata",
+     "prices": "20cm $30",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "NYSSA",
+   "items": [
+    {
+     "title": "Nyssa \"autumn cascades\"",
+     "name": "\"autumn cascades\"",
+     "prices": "$140",
+     "note": ""
+    },
+    {
+     "title": "Nyssa sylvatica \"black tupelo\"",
+     "name": "sylvatica \"black tupelo\"",
+     "prices": "$60 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "OLEA",
+   "items": [
+    {
+     "title": "Olea Europea \"Tolley's Upright\"",
+     "name": "Europea \"Tolley's Upright\"",
+     "prices": "$60",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "OLIVE",
+   "items": [
+    {
+     "title": "Olive 100L",
+     "name": "100L",
+     "prices": "$795 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Olive Dwarf \"Bambalina\"",
+     "name": "Dwarf \"Bambalina\"",
+     "prices": "30cm $90 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PALLIDA",
+   "items": [
+    {
+     "title": "Pallida yellow witch hazel",
+     "name": "yellow witch hazel",
+     "prices": "$120",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PAROTIA",
+   "items": [
+    {
+     "title": "Parotia persica \"Persian Witch Hazel\"",
+     "name": "persica \"Persian Witch Hazel\"",
+     "prices": "40cm $265",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PHOTINIA",
+   "items": [
+    {
+     "title": "Photinia Robusta",
+     "name": "Robusta",
+     "prices": "20cm $30, 25cm $60, 40cm $220 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Photinia fraserii \"Red Robin\"",
+     "name": "fraserii \"Red Robin\"",
+     "prices": "$60",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PICEA",
+   "items": [
+    {
+     "title": "Picea \"Blue diamond\"",
+     "name": "\"Blue diamond\"",
+     "prices": "$90",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PINUS",
+   "items": [
+    {
+     "title": "Pinus assorted CN black pine etc",
+     "name": "assorted CN black pine etc",
+     "prices": "$65",
+     "note": ""
+    },
+    {
+     "title": "Pinus densiflora \"Low Glow\"",
+     "name": "densiflora \"Low Glow\"",
+     "prices": "20cm $60 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Pinus thunbergii \"Japanese Black Pine\"",
+     "name": "thunbergii \"Japanese Black Pine\"",
+     "prices": "25cm $85 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PISTACIA",
+   "items": [
+    {
+     "title": "Pistacia chinensis \"Chinese Pistacio\"",
+     "name": "chinensis \"Chinese Pistacio\"",
+     "prices": "23cm $60, 30cm $140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PLATANUS",
+   "items": [
+    {
+     "title": "Platanus acerfolia \"London Plane\"",
+     "name": "acerfolia \"London Plane\"",
+     "prices": "40cm $180",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PODOCARPUS",
+   "items": [
+    {
+     "title": "Podocarpus blue/red gem",
+     "name": "blue/red gem",
+     "prices": "$30",
+     "note": ""
+    },
+    {
+     "title": "Podocarpus elatus \"Illawarra Plum Pine\"",
+     "name": "elatus \"Illawarra Plum Pine\"",
+     "prices": "20cm $40 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Podocarpus macrophylla \"Buddhist Pine\"",
+     "name": "macrophylla \"Buddhist Pine\"",
+     "prices": "20cm $40 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PRUNUS",
+   "items": [
+    {
+     "title": "Prunus \"Kanzan\"",
+     "name": "\"Kanzan\"",
+     "prices": "30cm $140",
+     "note": ""
+    },
+    {
+     "title": "Prunus blireana \"Ornamental Plum\"",
+     "name": "blireana \"Ornamental Plum\"",
+     "prices": "23cm $60",
+     "note": ""
+    },
+    {
+     "title": "Prunus cerasifera \"Nigra\"",
+     "name": "cerasifera \"Nigra\"",
+     "prices": "30cm $120 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Prunus cerasifera \"Oakville Crimson Spire\"",
+     "name": "cerasifera \"Oakville Crimson Spire\"",
+     "prices": "30cm $140, 40cm $240",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "PYRUS",
+   "items": [
+    {
+     "title": "Pyrus \"Capital\"",
+     "name": "\"Capital\"",
+     "prices": "23cm $60, 30cm $120, 40cm $180 (1 left)",
+     "note": "Upright, grows 11x3m"
+    },
+    {
+     "title": "Pyrus \"Dancer'",
+     "name": "\"Dancer'",
+     "prices": "$240",
+     "note": "Grows 7x4.5m"
+    },
+    {
+     "title": "Pyrus \"Glensform\"",
+     "name": "\"Glensform\"",
+     "prices": "23cm $60, 30cm $120, 40cm $240",
+     "note": "Grows 11x5m"
+    },
+    {
+     "title": "Pyrus ussuriensis  \"Manchurian Pear\"",
+     "name": "ussuriensis  \"Manchurian Pear\"",
+     "prices": "30cm $120, 40cm $240",
+     "note": "Great shade tree, grows 8x6m"
+    }
+   ]
+  },
+  {
+   "group": "QUERCUS",
+   "items": [
+    {
+     "title": "Quercus \"Swamp White Oak\"",
+     "name": "\"Swamp White Oak\"",
+     "prices": "$140",
+     "note": ""
+    },
+    {
+     "title": "Quercus Concordia \"golden english oak\"",
+     "name": "Concordia \"golden english oak\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Quercus cerris \"Turkey Oak\"",
+     "name": "cerris \"Turkey Oak\"",
+     "prices": "40cm $265 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Quercus palustris \"Pin Oak\"",
+     "name": "palustris \"Pin Oak\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Quercus phellos \"willow Oak\"",
+     "name": "phellos \"willow Oak\"",
+     "prices": "40cm $265",
+     "note": ""
+    },
+    {
+     "title": "Quercus robur \"English Oak\"",
+     "name": "robur \"English Oak\"",
+     "prices": "40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Quercus rubra \"Red Oak\"",
+     "name": "rubra \"Red Oak\"",
+     "prices": "30cm $120",
+     "note": ""
+    },
+    {
+     "title": "Quercus suber \"Cork Oak\"",
+     "name": "suber \"Cork Oak\"",
+     "prices": "40cm $240",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "RHAPHIOLEPIS",
+   "items": [
+    {
+     "title": "Rhaphiolepis indica \"Oriental Pink\"",
+     "name": "indica \"Oriental Pink\"",
+     "prices": "20cm $30",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "RHAPHIOLEPSIS",
+   "items": [
+    {
+     "title": "Rhaphiolepsis indica \"Snow Maiden\"",
+     "name": "indica \"Snow Maiden\"",
+     "prices": "25cm $50 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ROBINIA",
+   "items": [
+    {
+     "title": "Robinia \"golden robinia\"",
+     "name": "\"golden robinia\"",
+     "prices": "$180 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Robinia \"lace lady'",
+     "name": "\"lace lady'",
+     "prices": "25cm $120 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "SAMBUCUS",
+   "items": [
+    {
+     "title": "Sambucus nigra \"Black Lace\"",
+     "name": "nigra \"Black Lace\"",
+     "prices": "40cm $180",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "SEQUOIA",
+   "items": [
+    {
+     "title": "Sequoia sempervirens \"Coast Redwood\"",
+     "name": "sempervirens \"Coast Redwood\"",
+     "prices": "20cm $40 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "SYRINGA",
+   "items": [
+    {
+     "title": "Syringa lilac assorted 25cm",
+     "name": "lilac assorted 25cm",
+     "prices": "$65",
+     "note": ""
+    },
+    {
+     "title": "Syringa meyeri \"Palibin\"",
+     "name": "meyeri \"Palibin\"",
+     "prices": "20cm $50",
+     "note": ""
+    },
+    {
+     "title": "Syringa vulgaris \"Nadezhda/ Hope\"",
+     "name": "vulgaris \"Nadezhda/ Hope\"",
+     "prices": "20cm $50",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "SYZYGIUM",
+   "items": [
+    {
+     "title": "Syzygium Lilly Pilly \"Backyard Bliss\"",
+     "name": "Lilly Pilly \"Backyard Bliss\"",
+     "prices": "20cm $30, 25cm $60 (1 left), 30cm $120, 40cm standard $220 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "TAXODIUM",
+   "items": [
+    {
+     "title": "Taxodium \"cascade falls\"",
+     "name": "\"cascade falls\"",
+     "prices": "$140",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "TRISTANIOPSIS",
+   "items": [
+    {
+     "title": "Tristaniopsis \"luscious\"",
+     "name": "\"luscious\"",
+     "prices": "30cm $140 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ULMUS",
+   "items": [
+    {
+     "title": "Ulmus glabra \"Golden Elm\"",
+     "name": "glabra \"Golden Elm\"",
+     "prices": "$180",
+     "note": ""
+    },
+    {
+     "title": "Ulmus parvifolia \"Chinese Elm\"",
+     "name": "parvifolia \"Chinese Elm\"",
+     "prices": "30cm $155 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "VIBURNUM",
+   "items": [
+    {
+     "title": "Viburnum Tinus",
+     "name": "Tinus",
+     "prices": "20cm $30, 30cm $80 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Viburnum odoratissimum",
+     "name": "odoratissimum",
+     "prices": "20cm $30, 25cm $60, 30cm $120",
+     "note": ""
+    },
+    {
+     "title": "Viburnum opulus \"Snowball\"",
+     "name": "opulus \"Snowball\"",
+     "prices": "20cm $45, 30cm $155 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "WATERHOUSIA",
+   "items": [
+    {
+     "title": "Waterhousia floribunda",
+     "name": "floribunda",
+     "prices": "$220 (1 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "WESTRINGIA",
+   "items": [
+    {
+     "title": "Westringia assorted",
+     "name": "assorted",
+     "prices": "20cm $30",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "WISTERIA",
+   "items": [
+    {
+     "title": "Wisteria purple/white",
+     "name": "purple/white",
+     "prices": "$45",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "ZELKOVA",
+   "items": [
+    {
+     "title": "Zelkova \"Green vase\"",
+     "name": "\"Green vase\"",
+     "prices": "40cm $265",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "group": "FRUIT TREES",
+   "items": [
+    {
+     "title": "Apple dwarf \"Leprechaun\"",
+     "name": "Apple dwarf \"Leprechaun\"",
+     "prices": "23cm $60",
+     "note": ""
+    },
+    {
+     "title": "Citrus x Junos \" Yuzu Lemon\"",
+     "name": "Citrus x Junos \" Yuzu Lemon\"",
+     "prices": "20cm $60 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Fig \"Black Genoa\"",
+     "name": "Fig \"Black Genoa\"",
+     "prices": "23cm $60 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Fig \"Brown Turkey\"",
+     "name": "Fig \"Brown Turkey\"",
+     "prices": "$60 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Hazelnut (unsure of variety)",
+     "name": "Hazelnut (unsure of variety)",
+     "prices": "$90 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Lemon Meyer 30cm",
+     "name": "Lemon Meyer 30cm",
+     "prices": "$125 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Mandarin Japanese seedless",
+     "name": "Mandarin Japanese seedless",
+     "prices": "$70",
+     "note": ""
+    },
+    {
+     "title": "Nectarine \"Goldmine\"",
+     "name": "Nectarine \"Goldmine\"",
+     "prices": "30cm $80 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Nectarine MYSTERY",
+     "name": "Nectarine MYSTERY",
+     "prices": "23cm $30 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Nectarine dwarf \"Valley gold\"",
+     "name": "Nectarine dwarf \"Valley gold\"",
+     "prices": "25cm $60, 30cm $80 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Pear dwarf \"Red Princess\"",
+     "name": "Pear dwarf \"Red Princess\"",
+     "prices": "$60 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Pear lemon bergamot",
+     "name": "Pear lemon bergamot",
+     "prices": "$60",
+     "note": ""
+    },
+    {
+     "title": "Pear “Packham Triumph”",
+     "name": "Pear “Packham Triumph”",
+     "prices": "$80",
+     "note": ""
+    },
+    {
+     "title": "Plum \"Mariposa\"",
+     "name": "Plum \"Mariposa\"",
+     "prices": "30cm $80 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Plum Ruby blood",
+     "name": "Plum Ruby blood",
+     "prices": "$60 (1 left)",
+     "note": ""
+    },
+    {
+     "title": "Quince \"Smyrna\"",
+     "name": "Quince \"Smyrna\"",
+     "prices": "23cm $60",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}

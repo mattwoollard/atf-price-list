@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ATF Price List Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#17402b;--accent:#007640;--ink:#1b1b1b;--muted:#5e5e5e;--line:#d9e2dc;--paper:#f6f8f6;--off:#b9c2bc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Mulish,Helvetica,Arial,sans-serif;font-size:15px}
+header{background:var(--green);color:#fff;padding:14px 16px}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0}
+header img{height:46px;display:block}
+header h1{font-family:Quicksand,sans-serif;font-weight:700;font-size:20px;letter-spacing:.06em;margin:0;text-transform:uppercase}
+.intro{padding-block:18px 8px}
+.intro p{margin:0 0 6px;max-width:70ch}
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding-block:10px}
+.bar .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.bar input[type=search]{flex:1 1 220px;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:6px;font:inherit}
+button{font:600 14px Mulish,sans-serif;padding:9px 14px;border-radius:6px;border:1px solid var(--accent);background:#fff;color:var(--accent);cursor:pointer}
+button.primary{background:var(--accent);color:#fff}
+button:focus-visible,input:focus-visible{outline:3px solid #8cc9a6;outline-offset:2px}
+.count{color:var(--muted);font-size:14px;margin-left:auto}
+main{padding-block:12px 60px}
+.grp{background:#fff;border:1px solid var(--line);border-radius:8px;margin:0 0 12px;break-inside:avoid}
+.grp h2{font-family:Quicksand,sans-serif;font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--accent);margin:0;padding:10px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.grp h2 button{font-size:12px;padding:3px 8px}
+.cols{columns:2 420px;column-gap:12px}
+label.item{display:flex;gap:10px;align-items:flex-start;padding:8px 12px;border-bottom:1px solid #eef2ef;cursor:pointer;line-height:1.35}
+label.item:last-child{border-bottom:0}
+label.item input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.name{font-weight:700}
+.note{font-style:italic;color:var(--muted)}
+.prices{display:block;color:#333;font-size:14px}
+label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off);text-decoration:line-through}
+.hidden{display:none!important}
+.status{font-size:14px;color:var(--muted);padding-top:4px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><img id="logo" src="logo.png" alt="Adelaide Tree Farm"><h1>Price list builder</h1></div></header>
+
+<section class="wrap intro">
+  <p><b>Every product currently in stock is listed below.</b> Untick anything you don't want on this week's price list, then press <b>Create PDF</b> to download it.</p>
+  <p id="asat" class="status">Loading stock…</p>
+</section>
+
+<div class="bar"><div class="wrap">
+  <input id="q" type="search" placeholder="Search products" aria-label="Search products">
+  <button id="all" type="button">Tick all</button>
+  <button id="pdf" class="primary" type="button">Create PDF</button>
+  <span id="count" class="count"></span>
+</div></div>
+
+<main class="wrap"><div id="list" class="cols"></div></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const KEY='atf-pricelist-off';
+let DATA=null, OFF=new Set();
+try{OFF=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...OFF]))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function fmtDate(iso){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}
+
+function render(){
+  const list=document.getElementById('list'); list.innerHTML='';
+  DATA.groups.forEach((g,gi)=>{
+    const div=document.createElement('div'); div.className='grp'; div.dataset.g=gi;
+    div.innerHTML=`<h2>${esc(g.group)} <button type="button" data-untick="${gi}">Untick group</button></h2>`+
+      g.items.map((it,ii)=>`<label class="item${OFF.has(it.title)?' off':''}" data-t="${esc((g.group+' '+it.title).toLowerCase())}"><input type="checkbox" data-title="${esc(it.title)}" ${OFF.has(it.title)?'':'checked'}><span><span class="name">${esc(it.name)}</span>${it.note?` <span class="note">${esc(it.note)}.</span>`:''}<span class="prices">${esc(it.prices)}</span></span></label>`).join('');
+    list.appendChild(div);
+  });
+  count();
+}
+function count(){
+  const total=DATA.groups.reduce((a,g)=>a+g.items.length,0);
+  const on=DATA.groups.reduce((a,g)=>a+g.items.filter(i=>!OFF.has(i.title)).length,0);
+  document.getElementById('count').textContent=`${on} of ${total} products on the list`;
+}
+document.addEventListener('change',e=>{
+  const t=e.target.dataset.title; if(!t)return;
+  e.target.checked?OFF.delete(t):OFF.add(t);
+  e.target.closest('label').classList.toggle('off',!e.target.checked); save(); count();
+});
+document.addEventListener('click',e=>{
+  const gi=e.target.dataset.untick; if(gi===undefined)return;
+  DATA.groups[gi].items.forEach(i=>OFF.add(i.title)); save(); render(); filter();
+});
+document.getElementById('all').onclick=()=>{OFF.clear();save();render();filter()};
+function filter(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  document.querySelectorAll('.grp').forEach(g=>{
+    let any=false; g.querySelectorAll('label.item').forEach(l=>{const m=!q||l.dataset.t.includes(q); l.classList.toggle('hidden',!m); any=any||m});
+    g.classList.toggle('hidden',!any);
+  });
+}
+document.getElementById('q').addEventListener('input',filter);
+
+async function logoData(){
+  const img=document.getElementById('logo'); await img.decode().catch(()=>{});
+  const c=document.createElement('canvas'); c.width=img.naturalWidth; c.height=img.naturalHeight;
+  c.getContext('2d').drawImage(img,0,0); return {url:c.toDataURL('image/png'),w:img.naturalWidth,h:img.naturalHeight};
+}
+
+async function makePDF(){
+  const btn=document.getElementById('pdf'); btn.disabled=true; btn.textContent='Creating…';
+  try{
+  const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4'});
+  const GREEN=[23,64,43], ACC=[0,118,64], INK=[27,27,27], GREY=[95,95,95];
+  const M=10, W=210, H=297, GAP=5, COLW=(W-2*M-2*GAP)/3, LH=3.15, FS=7.5;
+  const date=fmtDate(DATA.date), month=new Date(DATA.date+'T00:00:00').toLocaleDateString('en-AU',{month:'long',year:'numeric'}).toUpperCase();
+  // header band
+  doc.setFillColor(...GREEN); doc.rect(M,M,W-2*M,17,'F');
+  const L=await logoData(); const lh=12, lw=lh*L.w/L.h; doc.addImage(L.url,'PNG',M+3,M+2.5,lw,lh);
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(15);
+  doc.text('PRICE LIST '+month,W-M-3,M+8,{align:'right'});
+  doc.setFont('helvetica','normal'); doc.setFontSize(7);
+  doc.text('168 Gum Flat Rd, Carey Gully · 0452 667 175 · sales@adelaidetreefarm.com.au · adelaidetreefarm.com.au',W-M-3,M+13.5,{align:'right'});
+  doc.setTextColor(...INK); doc.setFontSize(7.2);
+  doc.text(`Prices updated ${date}. Stock sells quickly, please call to check.`,M,M+21.5);
+  doc.setFont('helvetica','bold'); const s1='Sizes are the pot or bag size'; doc.setFont('helvetica','normal'); const s2=' (eg 30cm, 90L), not the height of the tree.';
+  const w2=doc.getTextWidth(s2); doc.text(s2,W-M,M+21.5,{align:'right'}); doc.setFont('helvetica','bold'); doc.text(s1,W-M-w2,M+21.5,{align:'right'});
+  doc.setDrawColor(...ACC); doc.setLineWidth(0.3); doc.line(M,M+23.3,W-M,M+23.3);
+  let top=M+27, col=0, y=top;
+  const bottom=H-M;
+  const nextCol=()=>{col++; if(col>2){doc.addPage(); col=0; top=M+2} y=top};
+  const x=()=>M+col*(COLW+GAP);
+  // lay out tokens [{t,style,color}] with wrapping
+  function wrapTokens(tokens){
+    const lines=[]; let line=[], lw=0;
+    tokens.forEach(tok=>{
+      doc.setFont('helvetica',tok.s); doc.setFontSize(FS);
+      tok.t.split(/(\s+)/).forEach(w=>{ if(!w)return;
+        const ww=doc.getTextWidth(w);
+        if(lw+ww>COLW && w.trim()){ lines.push(line); line=[]; lw=0; }
+        if(!line.length && !w.trim())return;
+        line.push({t:w,s:tok.s,c:tok.c,w:ww}); lw+=ww;
+      });
+    });
+    if(line.length)lines.push(line); return lines;
+  }
+  function drawLines(lines){
+    lines.forEach(line=>{ let xx=x(); line.forEach(p=>{doc.setFont('helvetica',p.s); doc.setFontSize(FS); doc.setTextColor(...p.c); doc.text(p.t,xx,y); xx+=p.w}); y+=LH; });
+  }
+  const groups=DATA.groups.map(g=>({group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
+  groups.push({group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
+  groups.push({group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
+  groups.forEach(g=>{
+    const blocks=g.items.map(it=>{const t=[]; if(it.name)t.push({t:it.name+' ',s:'bold',c:INK}); if(it.note)t.push({t:it.note+'. ',s:'italic',c:GREY}); t.push({t:it.prices,s:'normal',c:INK}); return wrapTokens(t)});
+    const first=blocks[0].length*LH+4.6;
+    if(y+first>bottom) nextCol();
+    y+=1.6; doc.setFont('helvetica','bold'); doc.setFontSize(8.4); doc.setTextColor(...ACC); doc.text(g.group,x(),y); y+=3.6;
+    blocks.forEach(b=>{ if(y+b.length*LH>bottom){ nextCol(); } drawLines(b); y+=0.6; });
+  });
+  doc.save(`ATF Price List ${DATA.date}.pdf`);
+  } catch(err){ alert('Sorry, the PDF could not be created: '+err.message) }
+  btn.disabled=false; btn.textContent='Create PDF';
+}
+document.getElementById('pdf').onclick=makePDF;
+
+fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{DATA=d; document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render();})
+ .catch(()=>{document.getElementById('asat').textContent='The product list could not be loaded. Please refresh the page.'});
+</script>
+</body>
+</html>
