@@ -30,7 +30,9 @@ main{padding-block:12px 60px}
 .grp{background:#fff;border:1px solid var(--line);border-radius:8px;margin:0 0 12px;break-inside:avoid}
 .grp h2{font-family:Quicksand,sans-serif;font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--accent);margin:0;padding:10px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
 .grp h2 button{font-size:12px;padding:3px 8px}
-.cols{columns:2 420px;column-gap:12px}
+.cols{columns:1}
+#list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:0 12px;align-items:start}
+.sechead{grid-column:1/-1;font-family:Quicksand,sans-serif;font-size:16px;letter-spacing:.08em;color:#fff;background:var(--green);margin:8px 0 12px;padding:8px 12px;border-radius:6px}
 label.item{display:flex;gap:10px;align-items:flex-start;padding:8px 12px;border-bottom:1px solid #eef2ef;cursor:pointer;line-height:1.35}
 label.item:last-child{border-bottom:0}
 label.item input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent);flex:none}
@@ -75,8 +77,9 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 function fmtDate(iso){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}
 
 function render(){
-  const list=document.getElementById('list'); list.innerHTML='';
+  const list=document.getElementById('list'); list.innerHTML=''; let sec=null;
   DATA.groups.forEach((g,gi)=>{
+    if(g.section!==sec){ sec=g.section; const h=document.createElement('h2'); h.className='sechead'; h.textContent=sec; list.appendChild(h); }
     const div=document.createElement('div'); div.className='grp'; div.dataset.g=gi;
     div.innerHTML=`<h2>${esc(g.group)} <button type="button" data-untick="${gi}">Untick group</button></h2>`+
       g.items.map((it,ii)=>`<label class="item${OFF.has(it.title)?' off':''}" data-t="${esc((g.group+' '+it.title).toLowerCase())}"><input type="checkbox" data-title="${esc(it.title)}" ${OFF.has(it.title)?'':'checked'}><span><span class="name">${esc(it.name)}</span>${it.note?` <span class="note">${esc(it.note)}.</span>`:''}<span class="prices">${esc(it.prices)}</span></span></label>`).join('');
@@ -101,10 +104,11 @@ document.addEventListener('click',e=>{
 document.getElementById('all').onclick=()=>{OFF.clear();save();render();filter()};
 function filter(){
   const q=document.getElementById('q').value.trim().toLowerCase();
-  document.querySelectorAll('.grp').forEach(g=>{
+  document.querySelectorAll('#list .grp').forEach(g=>{
     let any=false; g.querySelectorAll('label.item').forEach(l=>{const m=!q||l.dataset.t.includes(q); l.classList.toggle('hidden',!m); any=any||m});
     g.classList.toggle('hidden',!any);
   });
+  document.querySelectorAll('.sechead').forEach(h=>{let n=h.nextElementSibling, any=false; while(n&&!n.classList.contains('sechead')){ if(!n.classList.contains('hidden'))any=true; n=n.nextElementSibling } h.classList.toggle('hidden',!any)});
 }
 document.getElementById('q').addEventListener('input',filter);
 
@@ -150,7 +154,9 @@ function buildPDF(FS,L){
   doc.setFont('helvetica','normal'); const s2=' (eg 30cm, 90L), not the height of the tree.'; const w2=doc.getTextWidth(s2);
   doc.text(s2,W-M,M+21.5,{align:'right'}); doc.setFont('helvetica','bold'); doc.text('Sizes are the pot or bag size',W-M-w2,M+21.5,{align:'right'});
   doc.setDrawColor(...ACC); doc.setLineWidth(0.3); doc.line(M,M+23.3,W-M,M+23.3);
-  let top=M+27, col=0, y=top; const bottom=H-M;
+  doc.setFont('helvetica','bold'); doc.setFontSize(7.2); doc.setTextColor(...GREEN);
+  const st=doc.splitTextToSize(DATA.statement||'',W-2*M); doc.text(st,M,M+27);
+  let top=M+29+st.length*3, col=0, y=top; const bottom=H-M;
   const nextCol=()=>{col++; if(col>2){doc.addPage(); col=0; top=M+2} y=top};
   const x=()=>M+col*(COLW+GAP);
   function wrapTokens(tokens){
@@ -170,10 +176,19 @@ function buildPDF(FS,L){
   function drawLines(lines){
     lines.forEach(line=>{ let xx=x(); line.forEach(p=>{doc.setFont('helvetica',p.s); doc.setFontSize(FS); doc.setTextColor(...p.c); doc.text(p.t,xx,y); xx+=p.w}); y+=LH; });
   }
-  const groups=DATA.groups.map(g=>({group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
+  const groups=DATA.groups.map(g=>({section:g.section,group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
   if(document.getElementById('xGift').checked) groups.push({group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
   if(document.getElementById('xDel').checked) groups.push({group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
+  let lastSec=null;
   groups.forEach(g=>{
+    if(g.section && g.section!==lastSec){
+      lastSec=g.section; const bh=HS*0.62;
+      if(y+bh+HS*1.2>bottom) nextCol();
+      if(y>top+0.1) y+=1.5;
+      doc.setFillColor(...GREEN); doc.rect(x(),y,COLW,bh,'F');
+      doc.setFont('helvetica','bold'); doc.setFontSize(HS*1.1); doc.setTextColor(255,255,255);
+      doc.text(g.section,x()+1.5,y+bh*0.72); y+=bh+2.2;
+    }
     const blocks=g.items.map(it=>{const t=[]; if(it.name)t.push({t:it.name+' ',s:'bold',c:INK}); if(it.note)t.push({t:it.note+'. ',s:'italic',c:GREY}); t.push({t:it.prices,s:'normal',c:INK}); return wrapTokens(t)});
     const first=blocks[0].length*LH+HS*0.55+1.6;
     if(y+first>bottom) nextCol();
