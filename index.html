@@ -26,6 +26,7 @@ button.primary{background:var(--accent);color:#fff}
 button:focus-visible,input:focus-visible{outline:3px solid #8cc9a6;outline-offset:2px}
 .count{color:var(--muted);font-size:14px;margin-left:auto}
 main{padding-block:12px 60px}
+.extras{margin-bottom:14px}
 .grp{background:#fff;border:1px solid var(--line);border-radius:8px;margin:0 0 12px;break-inside:avoid}
 .grp h2{font-family:Quicksand,sans-serif;font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--accent);margin:0;padding:10px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
 .grp h2 button{font-size:12px;padding:3px 8px}
@@ -56,7 +57,12 @@ label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off
   <span id="count" class="count"></span>
 </div></div>
 
-<main class="wrap"><div id="list" class="cols"></div></main>
+<main class="wrap">
+<div class="grp extras"><h2>Extra sections</h2>
+  <label class="item"><input type="checkbox" id="xGift"><span><span class="name">Gift vouchers</span><span class="prices">Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.</span></span></label>
+  <label class="item"><input type="checkbox" id="xDel"><span><span class="name">Delivery</span><span class="prices">Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.</span></span></label>
+</div>
+<div id="list" class="cols"></div></main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -111,33 +117,49 @@ async function logoData(){
 async function makePDF(){
   const btn=document.getElementById('pdf'); btn.disabled=true; btn.textContent='Creating…';
   try{
+    const L=await logoData();
+    // use the largest font size that still fits on two pages
+    const doc=bestPDF(L);
+    doc.save(`ATF Price List ${DATA.date}.pdf`);
+  } catch(err){ alert('Sorry, the PDF could not be created: '+err.message) }
+  btn.disabled=false; btn.textContent='Create PDF';
+}
+// largest font size (7.5 to 11 pt, in quarter points) that fits on two pages
+function bestPDF(L){
+  let lo=0, hi=14, best=null;           // fs = 7.5 + 0.25*i
+  const at=i=>buildPDF(7.5+0.25*i,L);
+  const first=at(0); if(first.getNumberOfPages()>2) return first;
+  best=first;
+  while(lo<hi){ const mid=Math.ceil((lo+hi)/2); const d=at(mid); if(d.getNumberOfPages()<=2){lo=mid; best=d} else hi=mid-1; }
+  return best;
+}
+const UW={};
+function buildPDF(FS,L){
   const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4'});
   const GREEN=[23,64,43], ACC=[0,118,64], INK=[27,27,27], GREY=[95,95,95];
-  const M=10, W=210, H=297, GAP=5, COLW=(W-2*M-2*GAP)/3, LH=3.15, FS=7.5;
+  const M=10, W=210, H=297, GAP=5, COLW=(W-2*M-2*GAP)/3, LH=FS*0.42, HS=FS*1.12;
   const date=fmtDate(DATA.date), month=new Date(DATA.date+'T00:00:00').toLocaleDateString('en-AU',{month:'long',year:'numeric'}).toUpperCase();
-  // header band
   doc.setFillColor(...GREEN); doc.rect(M,M,W-2*M,17,'F');
-  const L=await logoData(); const lh=12, lw=lh*L.w/L.h; doc.addImage(L.url,'PNG',M+3,M+2.5,lw,lh);
+  const lh=12, lw=lh*L.w/L.h; doc.addImage(L.url,'PNG',M+3,M+2.5,lw,lh);
   doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(15);
   doc.text('PRICE LIST '+month,W-M-3,M+8,{align:'right'});
   doc.setFont('helvetica','normal'); doc.setFontSize(7);
   doc.text('168 Gum Flat Rd, Carey Gully · 0452 667 175 · sales@adelaidetreefarm.com.au · adelaidetreefarm.com.au',W-M-3,M+13.5,{align:'right'});
   doc.setTextColor(...INK); doc.setFontSize(7.2);
   doc.text(`Prices updated ${date}. Stock sells quickly, please call to check.`,M,M+21.5);
-  doc.setFont('helvetica','bold'); const s1='Sizes are the pot or bag size'; doc.setFont('helvetica','normal'); const s2=' (eg 30cm, 90L), not the height of the tree.';
-  const w2=doc.getTextWidth(s2); doc.text(s2,W-M,M+21.5,{align:'right'}); doc.setFont('helvetica','bold'); doc.text(s1,W-M-w2,M+21.5,{align:'right'});
+  doc.setFont('helvetica','normal'); const s2=' (eg 30cm, 90L), not the height of the tree.'; const w2=doc.getTextWidth(s2);
+  doc.text(s2,W-M,M+21.5,{align:'right'}); doc.setFont('helvetica','bold'); doc.text('Sizes are the pot or bag size',W-M-w2,M+21.5,{align:'right'});
   doc.setDrawColor(...ACC); doc.setLineWidth(0.3); doc.line(M,M+23.3,W-M,M+23.3);
-  let top=M+27, col=0, y=top;
-  const bottom=H-M;
+  let top=M+27, col=0, y=top; const bottom=H-M;
   const nextCol=()=>{col++; if(col>2){doc.addPage(); col=0; top=M+2} y=top};
   const x=()=>M+col*(COLW+GAP);
-  // lay out tokens [{t,style,color}] with wrapping
   function wrapTokens(tokens){
     const lines=[]; let line=[], lw=0;
     tokens.forEach(tok=>{
       doc.setFont('helvetica',tok.s); doc.setFontSize(FS);
       tok.t.split(/(\s+)/).forEach(w=>{ if(!w)return;
-        const ww=doc.getTextWidth(w);
+        const key=tok.s+'|'+w; if(UW[key]===undefined) UW[key]=doc.getStringUnitWidth(w);
+        const ww=UW[key]*FS/doc.internal.scaleFactor;
         if(lw+ww>COLW && w.trim()){ lines.push(line); line=[]; lw=0; }
         if(!line.length && !w.trim())return;
         line.push({t:w,s:tok.s,c:tok.c,w:ww}); lw+=ww;
@@ -149,20 +171,19 @@ async function makePDF(){
     lines.forEach(line=>{ let xx=x(); line.forEach(p=>{doc.setFont('helvetica',p.s); doc.setFontSize(FS); doc.setTextColor(...p.c); doc.text(p.t,xx,y); xx+=p.w}); y+=LH; });
   }
   const groups=DATA.groups.map(g=>({group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
-  groups.push({group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
-  groups.push({group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
+  if(document.getElementById('xGift').checked) groups.push({group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
+  if(document.getElementById('xDel').checked) groups.push({group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
   groups.forEach(g=>{
     const blocks=g.items.map(it=>{const t=[]; if(it.name)t.push({t:it.name+' ',s:'bold',c:INK}); if(it.note)t.push({t:it.note+'. ',s:'italic',c:GREY}); t.push({t:it.prices,s:'normal',c:INK}); return wrapTokens(t)});
-    const first=blocks[0].length*LH+4.6;
+    const first=blocks[0].length*LH+HS*0.55+1.6;
     if(y+first>bottom) nextCol();
-    y+=1.6; doc.setFont('helvetica','bold'); doc.setFontSize(8.4); doc.setTextColor(...ACC); doc.text(g.group,x(),y); y+=3.6;
-    blocks.forEach(b=>{ if(y+b.length*LH>bottom){ nextCol(); } drawLines(b); y+=0.6; });
+    y+=HS*0.2; doc.setFont('helvetica','bold'); doc.setFontSize(HS); doc.setTextColor(...ACC); doc.text(g.group,x(),y); y+=HS*0.43;
+    blocks.forEach(b=>{ if(y+b.length*LH>bottom){ nextCol(); } drawLines(b); y+=LH*0.2; });
   });
-  doc.save(`ATF Price List ${DATA.date}.pdf`);
-  } catch(err){ alert('Sorry, the PDF could not be created: '+err.message) }
-  btn.disabled=false; btn.textContent='Create PDF';
+  return doc;
 }
 document.getElementById('pdf').onclick=makePDF;
+['xGift','xDel'].forEach(id=>{const el=document.getElementById(id); try{el.checked=localStorage.getItem('atf-'+id)==='1'}catch(e){} el.addEventListener('change',()=>{try{localStorage.setItem('atf-'+id,el.checked?'1':'0')}catch(e){}})});
 
 fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{DATA=d; document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render();})
  .catch(()=>{document.getElementById('asat').textContent='The product list could not be loaded. Please refresh the page.'});
