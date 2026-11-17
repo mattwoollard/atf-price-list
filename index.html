@@ -38,6 +38,7 @@ label.item:last-child{border-bottom:0}
 label.item input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent);flex:none}
 .name{font-weight:700}
 .note{font-style:italic;color:var(--muted)}
+select.mv{display:block;margin-top:5px;font:12px Mulish,sans-serif;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 4px;background:#fff}
 .prices{display:block;color:#333;font-size:14px}
 label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off);text-decoration:line-through}
 .hidden{display:none!important}
@@ -49,6 +50,7 @@ label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off
 
 <section class="wrap intro">
   <p><b>Every product currently in stock is listed below.</b> Untick anything you don't want on this week's price list, then press <b>Create PDF</b> to download it.</p>
+  <p>To move a plant to a different section, change the section under its price. Your changes are remembered on this computer.</p>
   <p id="asat" class="status">Loading stock…</p>
 </section>
 
@@ -57,6 +59,7 @@ label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off
   <button id="all" type="button">Tick all</button>
   <button id="pdf" class="primary" type="button">Create PDF</button>
   <span id="count" class="count"></span>
+  <span id="moved" class="count hidden"></span>
 </div></div>
 
 <main class="wrap">
@@ -71,35 +74,64 @@ label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off
 const KEY='atf-pricelist-off';
 let DATA=null, OFF=new Set();
 try{OFF=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...OFF]))}catch(e){}};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...OFF]));localStorage.setItem(MKEY,JSON.stringify(MOVE))}catch(e){}};
+const MKEY='atf-pricelist-move'; let MOVE={};
+try{MOVE=JSON.parse(localStorage.getItem(MKEY)||'{}')}catch(e){}
+const SECTIONS=['TREES','NATIVE TREES','SHRUBS','HEDGING AND SCREENING','FRUIT TREES'];
+// groups with James's section moves applied
+function effGroups(){
+  const map=new Map();
+  DATA.groups.forEach(g=>g.items.forEach(it=>{
+    const sec=MOVE[it.title]||g.section, key=sec+'|'+g.group;
+    if(!map.has(key)) map.set(key,{section:sec,group:g.group,items:[]});
+    map.get(key).items.push(it);
+  }));
+  return [...map.values()].sort((a,b)=>SECTIONS.indexOf(a.section)-SECTIONS.indexOf(b.section)||a.group.localeCompare(b.group));
+}
+let EFF=[];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 function fmtDate(iso){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}
 
 function render(){
   const list=document.getElementById('list'); list.innerHTML=''; let sec=null;
-  DATA.groups.forEach((g,gi)=>{
+  EFF=effGroups();
+  EFF.forEach((g,gi)=>{
     if(g.section!==sec){ sec=g.section; const h=document.createElement('h2'); h.className='sechead'; h.textContent=sec; list.appendChild(h); }
     const div=document.createElement('div'); div.className='grp'; div.dataset.g=gi;
     div.innerHTML=`<h2>${esc(g.group)} <button type="button" data-untick="${gi}">Untick group</button></h2>`+
-      g.items.map((it,ii)=>`<label class="item${OFF.has(it.title)?' off':''}" data-t="${esc((g.group+' '+it.title).toLowerCase())}"><input type="checkbox" data-title="${esc(it.title)}" ${OFF.has(it.title)?'':'checked'}><span><span class="name">${esc(it.name)}</span>${it.note?` <span class="note">${esc(it.note)}.</span>`:''}<span class="prices">${esc(it.prices)}</span></span></label>`).join('');
+      g.items.map((it,ii)=>`<label class="item${OFF.has(it.title)?' off':''}" data-t="${esc((g.group+' '+it.title).toLowerCase())}"><input type="checkbox" data-title="${esc(it.title)}" ${OFF.has(it.title)?'':'checked'}><span><span class="name">${esc(it.name)}</span>${it.note?` <span class="note">${esc(it.note)}.</span>`:''}<span class="prices">${esc(it.prices)}</span><select class="mv" data-move="${esc(it.title)}" aria-label="Section for ${esc(it.name)}">${SECTIONS.map(x=>`<option${x===g.section?' selected':''}>${x}</option>`).join('')}</select></span></label>`).join('');
     list.appendChild(div);
   });
   count();
 }
+function moved(){
+  const n=Object.keys(MOVE).length, el=document.getElementById('moved');
+  el.classList.toggle('hidden',!n);
+  el.innerHTML=n?`${n} moved to another section · <button type="button" id="copymv">Copy list for ACER</button> <button type="button" id="resetmv">Undo moves</button>`:'';
+}
+document.addEventListener('click',async e=>{
+  if(e.target.id==='resetmv'){ MOVE={}; save(); render(); filter(); moved(); }
+  if(e.target.id==='copymv'){
+    const txt=Object.entries(MOVE).map(([t,s])=>`${t} -> ${s}`).join('\n');
+    try{ await navigator.clipboard.writeText(txt); e.target.textContent='Copied'; }catch(err){ prompt('Copy this list:',txt); }
+  }
+});
 function count(){
   const total=DATA.groups.reduce((a,g)=>a+g.items.length,0);
   const on=DATA.groups.reduce((a,g)=>a+g.items.filter(i=>!OFF.has(i.title)).length,0);
   document.getElementById('count').textContent=`${on} of ${total} products on the list`;
 }
 document.addEventListener('change',e=>{
+  const mv=e.target.dataset.move;
+  if(mv){ const orig=DATA.groups.find(g=>g.items.some(i=>i.title===mv)).section; if(e.target.value===orig) delete MOVE[mv]; else MOVE[mv]=e.target.value; save(); render(); filter(); moved(); return; }
   const t=e.target.dataset.title; if(!t)return;
   e.target.checked?OFF.delete(t):OFF.add(t);
   e.target.closest('label').classList.toggle('off',!e.target.checked); save(); count();
 });
 document.addEventListener('click',e=>{
   const gi=e.target.dataset.untick; if(gi===undefined)return;
-  DATA.groups[gi].items.forEach(i=>OFF.add(i.title)); save(); render(); filter();
+  EFF[gi].items.forEach(i=>OFF.add(i.title)); save(); render(); filter();
 });
 document.getElementById('all').onclick=()=>{OFF.clear();save();render();filter()};
 function filter(){
@@ -131,7 +163,7 @@ async function makePDF(){
 const SEC_ORDER=['TREES','NATIVE TREES','SHRUBS','HEDGING AND SCREENING','FRUIT TREES','EXTRAS'];
 const MAX_FS=11, MIN_FS_WHOLE=7, MIN_FS=7.5;
 function currentGroups(){
-  const groups=DATA.groups.map(g=>({section:g.section,group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
+  const groups=effGroups().map(g=>({section:g.section,group:g.group,items:g.items.filter(i=>!OFF.has(i.title))})).filter(g=>g.items.length);
   if(document.getElementById('xGift').checked) groups.push({section:'EXTRAS',group:'GIFT VOUCHERS',items:[{name:'',prices:'Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.',note:''}]});
   if(document.getElementById('xDel').checked) groups.push({section:'EXTRAS',group:'DELIVERY',items:[{name:'',prices:'Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.',note:''}]});
   return groups;
@@ -183,7 +215,13 @@ function buildPDF(FS,L,groups,pages,draw){
   }
   const firstTop=M+29+st.length*3, bottom=H-M;
   let top=firstTop, col=0, y=top, page=1, overflow=false;
-  const newPage=()=>{ page++; if(draw) doc.addPage(); col=0; top=M+2; y=top; };
+  const header2=()=>{ doc.setFillColor(...GREEN); doc.rect(M,M,W-2*M,14,'F');
+    const lh=9.5, lw=lh*L.w/L.h; doc.addImage(L.url,'PNG',M+3,M+2.2,lw,lh);
+    doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13);
+    doc.text('PRICE LIST '+month,W-M-3,M+7,{align:'right'});
+    doc.setFont('helvetica','normal'); doc.setFontSize(6.8);
+    doc.text('168 Gum Flat Rd, Carey Gully · 0452 667 175 · sales@adelaidetreefarm.com.au · adelaidetreefarm.com.au',W-M-3,M+11.5,{align:'right'}); };
+  const newPage=()=>{ page++; if(draw){ doc.addPage(); header2(); } col=0; top=M+18; y=top; };
   const nextCol=()=>{ col++; if(col>2){ if(pages) overflow=true; newPage(); } y=top; };
   const x=()=>M+col*(COLW+GAP);
   function wrapTokens(tokens){
@@ -232,7 +270,7 @@ document.getElementById('pdf').onclick=makePDF;
 ['xGift','xDel'].forEach(id=>{const el=document.getElementById(id); try{el.checked=localStorage.getItem('atf-'+id)==='1'}catch(e){} el.addEventListener('change',()=>{try{localStorage.setItem('atf-'+id,el.checked?'1':'0')}catch(e){}})});
 
 fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(async d=>{DATA=d;
-  if(location.search.includes('export=1')){ OFF=new Set(); render(); const L=await logoData(); document.body.setAttribute('data-pdf',bestPDF(L).output('datauristring')); return; } document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render();})
+  if(location.search.includes('export=1')){ OFF=new Set(); render(); const L=await logoData(); document.body.setAttribute('data-pdf',bestPDF(L).output('datauristring')); return; } document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render(); moved();})
  .catch(()=>{document.getElementById('asat').textContent='The product list could not be loaded. Please refresh the page.'});
 </script>
 </body>

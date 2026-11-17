@@ -4,26 +4,8 @@
  "groups": [
   {
    "section": "TREES",
-   "group": "ACER",
+   "group": "ACER (Japanese maples)",
    "items": [
-    {
-     "title": "Acer X freemanii",
-     "name": "X freemanii",
-     "prices": "40cm $265 (5 left)",
-     "note": ""
-    },
-    {
-     "title": "Acer buergerianum \"Trident Maple\"",
-     "name": "buergerianum \"Trident Maple\"",
-     "prices": "30cm $140 (1 left), 40cm $240",
-     "note": ""
-    },
-    {
-     "title": "Acer negundo \"Sensation\"",
-     "name": "negundo \"Sensation\"",
-     "prices": "40cm $240 (2 left)",
-     "note": ""
-    },
     {
      "title": "Acer palmatum \"Bloodgood\"",
      "name": "palmatum \"Bloodgood\"",
@@ -89,6 +71,30 @@
      "name": "palmatum weeping assorted OG",
      "prices": "20cm $80 (1 left)",
      "note": ""
+    }
+   ]
+  },
+  {
+   "section": "TREES",
+   "group": "ACER (Other maples)",
+   "items": [
+    {
+     "title": "Acer X freemanii",
+     "name": "X freemanii",
+     "prices": "40cm $265 (5 left)",
+     "note": ""
+    },
+    {
+     "title": "Acer buergerianum \"Trident Maple\"",
+     "name": "buergerianum \"Trident Maple\"",
+     "prices": "30cm $140 (1 left), 40cm $240",
+     "note": ""
+    },
+    {
+     "title": "Acer negundo \"Sensation\"",
+     "name": "negundo \"Sensation\"",
+     "prices": "40cm $240 (2 left)",
+     "note": ""
     },
     {
      "title": "Acer pentaphyllum",
@@ -136,7 +142,7 @@
   },
   {
    "section": "TREES",
-   "group": "AGATHIS",
+   "group": "AGATHIS (Kauri)",
    "items": [
     {
      "title": "Agathis australis \"Kauri\"",
@@ -148,7 +154,7 @@
   },
   {
    "section": "TREES",
-   "group": "ALBIZIA",
+   "group": "ALBIZIA (Silk tree)",
    "items": [
     {
      "title": "Albizia julibrissin \"Chocolate Fountain\"",
@@ -160,7 +166,7 @@
   },
   {
    "section": "TREES",
-   "group": "BETULA",
+   "group": "BETULA (Birch)",
    "items": [
     {
      "title": "Betula pendula \"Silver Birch\"",
@@ -178,7 +184,7 @@
   },
   {
    "section": "TREES",
-   "group": "CEDRUS",
+   "group": "CEDRUS (Cedar)",
    "items": [
     {
      "title": "Cedrus atlantica \"Fastigiata\"",
@@ -190,7 +196,7 @@
   },
   {
    "section": "TREES",
-   "group": "CERCIS",
+   "group": "CERCIS (Redbud)",
    "items": [
     {
      "title": "Cercis canadensis \"Aurelian\"",
@@ -214,7 +220,7 @@
   },
   {
    "section": "TREES",
-   "group": "CORNUS",
+   "group": "CORNUS (Dogwood)",
    "items": [
     {
      "title": "Cornus kousa Chinese dogwood",
@@ -232,7 +238,7 @@
   },
   {
    "section": "TREES",
-   "group": "CRATAEGUS",
+   "group": "CRATAEGUS (Hawthorn)",
    "items": [
     {
      "title": "Crataegus crus-galli var. pyracanthifolia \"Horizontal Hawthorn\"",
@@ -244,7 +250,7 @@
   },
   {
    "section": "TREES",
-   "group": "CUPRESSUS",
+   "group": "CUPRESSUS (Cypress)",
    "items": [
     {
      "title": "Cupressus glabra \"Raywoods weeper\"",
@@ -268,7 +274,7 @@
   },
   {
    "section": "TREES",
-   "group": "FRAXINUS",
+   "group": "FRAXINUS (Ash)",
    "items": [
     {
      "title": "Fraxinus angustifolia “Raywood Claret Ash”",
@@ -292,7 +298,7 @@
   },
   {
    "section": "TREES",
-   "group": "GINKGO",
+   "group": "GINKGO (Maidenhair tree)",
    "items": [
     {
      "title": "Ginkgo biloba \"Lemonlime Spire\"",
@@ -316,7 +322,7 @@
   },
   {
    "section": "TREES",
-   "group": "GLEDITSIA",
+   "group": "GLEDITSIA (Honey locust)",
    "items": [
     {
      "title": "Gleditsia triacanthos \"Limegold\"",
@@ -352,7 +358,7 @@
   },
   {
    "section": "TREES",
-   "group": "JUGLANS",
+   "group": "JUGLANS (Walnut)",
    "items": [
     {
      "title": "Juglans nigra \"Black Walnut\"",
@@ -364,7 +370,7 @@
   },
   {
    "section": "TREES",
-   "group": "JUNIPERUS",
+   "group": "JUNIPERUS (Juniper)",
    "items": [
     {
      "title": "Juniperus scopulorum \"Blue arrow\"",
@@ -376,7 +382,7 @@
   },
   {
    "section": "TREES",
-   "group": "LAGERSTROEMIA",
+   "group": "LAGERSTROEMIA (Crepe myrtle)",
    "items": [
     {
      "title": "Lagerstroemia \"Acoma\"",
@@ -472,7 +478,7 @@
   },
   {
    "section": "TREES",
-   "group": "LIQUIDAMBAR",
+   "group": "LIQUIDAMBAR (Sweet gum)",
    "items": [
     {
      "title": "Liquidambar formosana \"Evergreen\"",
@@ -496,7 +502,7 @@
   },
   {
    "section": "TREES",
-   "group": "LIRIODENDRON",
+   "group": "LIRIODENDRON (Tulip tree)",
    "items": [
     {
      "title": "Liriodendron tulipifera \"Tulip Tree\"",
@@ -556,7 +562,7 @@
   },
   {
    "section": "TREES",
-   "group": "MALUS",
+   "group": "MALUS (Crab apple)",
    "items": [
     {
      "title": "Malus \"Gorgeous\"",
@@ -604,7 +610,7 @@
   },
   {
    "section": "TREES",
-   "group": "METASEQUOIA",
+   "group": "METASEQUOIA (Dawn redwood)",
    "items": [
     {
      "title": "Metasequoia glyptostroboides \"Dawn Redwood\"",
@@ -616,7 +622,7 @@
   },
   {
    "section": "TREES",
-   "group": "MORUS",
+   "group": "MORUS (Mulberry)",
    "items": [
     {
      "title": "Morus alba \"Pendula\" Weeping Mulberry",
@@ -634,7 +640,7 @@
   },
   {
    "section": "TREES",
-   "group": "NYSSA",
+   "group": "NYSSA (Tupelo)",
    "items": [
     {
      "title": "Nyssa sylvatica \"Autumn Cascade\"",
@@ -652,7 +658,7 @@
   },
   {
    "section": "TREES",
-   "group": "OLEA",
+   "group": "OLEA (Olive)",
    "items": [
     {
      "title": "Olea europea \"Tolley's Upright\"",
@@ -676,7 +682,7 @@
   },
   {
    "section": "TREES",
-   "group": "PAROTIA",
+   "group": "PAROTIA (Persian ironwood)",
    "items": [
     {
      "title": "Parotia persica \"Persian Witch Hazel\"",
@@ -688,7 +694,7 @@
   },
   {
    "section": "TREES",
-   "group": "PINUS",
+   "group": "PINUS (Pine)",
    "items": [
     {
      "title": "Pinus fexilis \"Vanderwolfs Pyramid\"",
@@ -718,7 +724,7 @@
   },
   {
    "section": "TREES",
-   "group": "PISTACIA",
+   "group": "PISTACIA (Chinese pistachio)",
    "items": [
     {
      "title": "Pistacia chinensis \"Chinese Pistacio\"",
@@ -730,7 +736,7 @@
   },
   {
    "section": "TREES",
-   "group": "PLATANUS",
+   "group": "PLATANUS (Plane tree)",
    "items": [
     {
      "title": "Platanus acerfolia \"London Plane\"",
@@ -742,7 +748,7 @@
   },
   {
    "section": "TREES",
-   "group": "PODOCARPUS",
+   "group": "PODOCARPUS (Plum pine)",
    "items": [
     {
      "title": "Podocarpus macrophylla \"Buddhist Pine\"",
@@ -754,7 +760,7 @@
   },
   {
    "section": "TREES",
-   "group": "PRUNUS",
+   "group": "PRUNUS (Ornamental cherry and plum)",
    "items": [
     {
      "title": "Prunus blireana \"Ornamental Plum\"",
@@ -784,7 +790,7 @@
   },
   {
    "section": "TREES",
-   "group": "PYRUS",
+   "group": "PYRUS (Ornamental pear)",
    "items": [
     {
      "title": "Pyrus betulifolia \"Southworth Dancer'",
@@ -814,7 +820,7 @@
   },
   {
    "section": "TREES",
-   "group": "QUERCUS",
+   "group": "QUERCUS (Oak)",
    "items": [
     {
      "title": "Quercus bicolor \"Swamp White Oak\"",
@@ -868,7 +874,7 @@
   },
   {
    "section": "TREES",
-   "group": "ROBINIA",
+   "group": "ROBINIA (Robinia)",
    "items": [
     {
      "title": "Robinia pseudoacacia \"Golden Robinia\"",
@@ -886,7 +892,7 @@
   },
   {
    "section": "TREES",
-   "group": "SEQUOIA",
+   "group": "SEQUOIA (Coast redwood)",
    "items": [
     {
      "title": "Sequoia sempervirens \"Coast Redwood\"",
@@ -898,7 +904,7 @@
   },
   {
    "section": "TREES",
-   "group": "TAXODIUM",
+   "group": "TAXODIUM (Swamp cypress)",
    "items": [
     {
      "title": "Taxodium distichum \"Cascade Falls\"",
@@ -910,7 +916,7 @@
   },
   {
    "section": "TREES",
-   "group": "ULMUS",
+   "group": "ULMUS (Elm)",
    "items": [
     {
      "title": "Ulmus glabra \"Golden Elm\"",
@@ -940,7 +946,7 @@
   },
   {
    "section": "TREES",
-   "group": "ZELKOVA",
+   "group": "ZELKOVA (Japanese zelkova)",
    "items": [
     {
      "title": "Zelkova serrata \"Green vase\"",
@@ -952,7 +958,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "ARAUCARIA",
+   "group": "ARAUCARIA (Hoop and Norfolk Island pines)",
    "items": [
     {
      "title": "Araucaria cunninghamii \"Hoop Pine\"",
@@ -982,7 +988,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "BRACHYCHITON",
+   "group": "BRACHYCHITON (Kurrajong and flame tree)",
    "items": [
     {
      "title": "Brachychiton acerifolius \"Flame Tree\"",
@@ -994,7 +1000,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "CORYMBIA",
+   "group": "CORYMBIA (Flowering gum)",
    "items": [
     {
      "title": "Corymbia ficifolia \"Baby Orange\"",
@@ -1012,7 +1018,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "CUPANIOPSIS",
+   "group": "CUPANIOPSIS (Tuckeroo)",
    "items": [
     {
      "title": "Cupaniopsis anarcardioides \"Tuckeroo\"",
@@ -1024,7 +1030,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "ELAEOCARPUS",
+   "group": "ELAEOCARPUS (Blueberry ash)",
    "items": [
     {
      "title": "Elaeocarpus reticulatus \"Blueberry Ash\"",
@@ -1036,7 +1042,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "EUCALYPTUS",
+   "group": "EUCALYPTUS (Gum)",
    "items": [
     {
      "title": "Eucalyptus caesia \"Silver Princess\"",
@@ -1066,7 +1072,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "GEIJERA",
+   "group": "GEIJERA (Native willow)",
    "items": [
     {
      "title": "Geijera \"Native willow\"",
@@ -1090,7 +1096,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "HIBISCUS",
+   "group": "HIBISCUS (Native hibiscus)",
    "items": [
     {
      "title": "Hibiscus tiliaceus rubra \"Cotton Wood - Native Hibiscus\"",
@@ -1102,7 +1108,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "HYMENOSPORUM",
+   "group": "HYMENOSPORUM (Native frangipani)",
    "items": [
     {
      "title": "Hymenosporum flavum “Native Frangipani”",
@@ -1114,7 +1120,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "PODOCARPUS",
+   "group": "PODOCARPUS (Plum pine)",
    "items": [
     {
      "title": "Podocarpus elatus \"Illawarra Plum Pine\"",
@@ -1126,7 +1132,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "TRISTANIOPSIS",
+   "group": "TRISTANIOPSIS (Water gum)",
    "items": [
     {
      "title": "Tristaniopsis \"luscious\"",
@@ -1138,7 +1144,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "WATERHOUSIA",
+   "group": "WATERHOUSIA (Weeping lilly pilly)",
    "items": [
     {
      "title": "Waterhousia floribunda",
@@ -1150,7 +1156,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "ACACIA",
+   "group": "ACACIA (Wattle)",
    "items": [
     {
      "title": "Acacia cognata \"Lime Magik",
@@ -1162,7 +1168,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "BUXUS",
+   "group": "BUXUS (Box)",
    "items": [
     {
      "title": "Buxus topiary cones",
@@ -1174,7 +1180,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "CALLISTEMON",
+   "group": "CALLISTEMON (Bottlebrush)",
    "items": [
     {
      "title": "Callistemon \"snow burst\"",
@@ -1186,7 +1192,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "CEPHALOTAXUS",
+   "group": "CEPHALOTAXUS (Plum yew)",
    "items": [
     {
      "title": "Cephalotaxus Prostrata",
@@ -1198,7 +1204,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "CORNUS",
+   "group": "CORNUS (Dogwood)",
    "items": [
     {
      "title": "Cornus sericea \"Yellow Twig\"",
@@ -1210,7 +1216,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "COTINUS",
+   "group": "COTINUS (Smoke bush)",
    "items": [
     {
      "title": "Cotinus coggygria \"Dusky Maiden\"",
@@ -1246,7 +1252,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "JUNIPERUS",
+   "group": "JUNIPERUS (Juniper)",
    "items": [
     {
      "title": "Juniperus horizontalis \"Motherlode\"",
@@ -1258,7 +1264,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "LEUC",
+   "group": "LEUC (Leucadendron and protea)",
    "items": [
     {
      "title": "Leuc / protea / pw assorted",
@@ -1282,7 +1288,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "PALLIDA",
+   "group": "PALLIDA (Witch hazel)",
    "items": [
     {
      "title": "Pallida yellow witch hazel",
@@ -1294,7 +1300,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "PICEA",
+   "group": "PICEA (Spruce)",
    "items": [
     {
      "title": "Picea pungens \"Blue diamond\"",
@@ -1306,7 +1312,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "PINUS",
+   "group": "PINUS (Pine)",
    "items": [
     {
      "title": "Pinus densiflora \"Low Glow\"",
@@ -1318,7 +1324,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "PODOCARPUS",
+   "group": "PODOCARPUS (Plum pine)",
    "items": [
     {
      "title": "Podocarpus blue/red gem",
@@ -1330,7 +1336,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "SAMBUCUS",
+   "group": "SAMBUCUS (Elder)",
    "items": [
     {
      "title": "Sambucus nigra \"Black Lace\"",
@@ -1342,7 +1348,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "SYRINGA",
+   "group": "SYRINGA (Lilac)",
    "items": [
     {
      "title": "Syringa lilac assorted 25cm",
@@ -1378,7 +1384,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "ACMENA",
+   "group": "ACMENA (Lilly pilly)",
    "items": [
     {
      "title": "Acmena smithii \"Minor\"",
@@ -1396,7 +1402,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "BUXUS",
+   "group": "BUXUS (Box)",
    "items": [
     {
      "title": "Buxus japonica \"Japanese Box\"",
@@ -1408,7 +1414,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "CUPRESSOCYPARIS",
+   "group": "CUPRESSOCYPARIS (Leyland cypress)",
    "items": [
     {
      "title": "Cupressocyparis leylandii \"Leighton Green\"",
@@ -1420,7 +1426,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "LAURUS",
+   "group": "LAURUS (Bay tree)",
    "items": [
     {
      "title": "Laurus nobilis \"Bay Tree\"",
@@ -1438,7 +1444,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "MURRAYA",
+   "group": "MURRAYA (Orange jessamine)",
    "items": [
     {
      "title": "Murraya paniculata",
@@ -1468,20 +1474,14 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "RHAPHIOLEPIS",
+   "group": "RHAPHIOLEPIS (Indian hawthorn)",
    "items": [
     {
      "title": "Rhaphiolepis indica \"Oriental Pink\"",
      "name": "indica \"Oriental Pink\"",
      "prices": "20cm $30",
      "note": ""
-    }
-   ]
-  },
-  {
-   "section": "HEDGING AND SCREENING",
-   "group": "RHAPHIOLEPSIS",
-   "items": [
+    },
     {
      "title": "Rhaphiolepsis indica \"Snow Maiden\"",
      "name": "indica \"Snow Maiden\"",
@@ -1492,7 +1492,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "SYZYGIUM",
+   "group": "SYZYGIUM (Lilly pilly)",
    "items": [
     {
      "title": "Syzygium australe \"Backyard Bliss\"",
@@ -1528,7 +1528,7 @@
   },
   {
    "section": "HEDGING AND SCREENING",
-   "group": "WESTRINGIA",
+   "group": "WESTRINGIA (Native rosemary)",
    "items": [
     {
      "title": "Westringia assorted",
