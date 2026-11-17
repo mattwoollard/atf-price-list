@@ -49,21 +49,21 @@ label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off
 <header><div class="wrap"><img id="logo" src="logo.png" alt="Adelaide Tree Farm"><h1>Price list builder</h1></div></header>
 
 <section class="wrap intro">
-  <p><b>Every product currently in stock is listed below.</b> Untick anything you don't want on this week's price list, then press <b>Create PDF</b> to download it.</p>
-  <p>To move a plant to a different section, change the section under its price. Your changes are remembered on this computer.</p>
+  <p><b>Every product currently in stock is listed below.</b> Tick anything you <b>don't</b> want on this week's price list, then press <b>Create PDF</b> to download it. The page starts fresh every time it's opened, with nothing ticked.</p>
+  <p>To move a plant to a different section, change the section under its price. Section changes also reset when the page is reopened.</p>
   <p id="asat" class="status">Loading stock…</p>
 </section>
 
 <div class="bar"><div class="wrap">
   <input id="q" type="search" placeholder="Search products" aria-label="Search products">
-  <button id="all" type="button">Tick all</button>
+  <button id="all" type="button">Clear ticks</button>
   <button id="pdf" class="primary" type="button">Create PDF</button>
   <span id="count" class="count"></span>
   <span id="moved" class="count hidden"></span>
 </div></div>
 
 <main class="wrap">
-<div class="grp extras"><h2>Extra sections</h2>
+<div class="grp extras"><h2>Extra sections (tick to add)</h2>
   <label class="item"><input type="checkbox" id="xGift"><span><span class="name">Gift vouchers</span><span class="prices">Email sales@adelaidetreefarm.com.au or text 0452 667 175 with the amount, to, greeting and from.</span></span></label>
   <label class="item"><input type="checkbox" id="xDel"><span><span class="name">Delivery</span><span class="prices">Hills and metro Adelaide. Text your postcode to 0452 667 175 for a quote.</span></span></label>
 </div>
@@ -73,10 +73,11 @@ label.item.off .name,label.item.off .prices,label.item.off .note{color:var(--off
 <script>
 const KEY='atf-pricelist-off';
 let DATA=null, OFF=new Set();
-try{OFF=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...OFF]));localStorage.setItem(MKEY,JSON.stringify(MOVE))}catch(e){}};
+// starts fresh every time: nothing ticked, nothing moved, nothing remembered
+try{localStorage.removeItem(KEY);localStorage.removeItem('atf-pricelist-move');localStorage.removeItem('atf-xGift');localStorage.removeItem('atf-xDel')}catch(e){}
+const save=()=>{};
 const MKEY='atf-pricelist-move'; let MOVE={};
-try{MOVE=JSON.parse(localStorage.getItem(MKEY)||'{}')}catch(e){}
+
 const SECTIONS=['TREES','NATIVE TREES','SHRUBS','HEDGING AND SCREENING','FRUIT TREES'];
 // groups with James's section moves applied
 function effGroups(){
@@ -99,8 +100,8 @@ function render(){
   EFF.forEach((g,gi)=>{
     if(g.section!==sec){ sec=g.section; const h=document.createElement('h2'); h.className='sechead'; h.textContent=sec; list.appendChild(h); }
     const div=document.createElement('div'); div.className='grp'; div.dataset.g=gi;
-    div.innerHTML=`<h2>${esc(g.group)} <button type="button" data-untick="${gi}">Untick group</button></h2>`+
-      g.items.map((it,ii)=>`<label class="item${OFF.has(it.title)?' off':''}" data-t="${esc((g.group+' '+it.title).toLowerCase())}"><input type="checkbox" data-title="${esc(it.title)}" ${OFF.has(it.title)?'':'checked'}><span><span class="name">${esc(it.name)}</span>${it.note?` <span class="note">${esc(it.note)}.</span>`:''}<span class="prices">${esc(it.prices)}</span><select class="mv" data-move="${esc(it.title)}" aria-label="Section for ${esc(it.name)}">${SECTIONS.map(x=>`<option${x===g.section?' selected':''}>${x}</option>`).join('')}</select></span></label>`).join('');
+    div.innerHTML=`<h2>${esc(g.group)} <button type="button" data-untick="${gi}">Tick group</button></h2>`+
+      g.items.map((it,ii)=>`<label class="item${OFF.has(it.title)?' off':''}" data-t="${esc((g.group+' '+it.title).toLowerCase())}"><input type="checkbox" data-title="${esc(it.title)}" ${OFF.has(it.title)?'checked':''}><span><span class="name">${esc(it.name)}</span>${it.note?` <span class="note">${esc(it.note)}.</span>`:''}<span class="prices">${esc(it.prices)}</span><select class="mv" data-move="${esc(it.title)}" aria-label="Section for ${esc(it.name)}">${SECTIONS.map(x=>`<option${x===g.section?' selected':''}>${x}</option>`).join('')}</select></span></label>`).join('');
     list.appendChild(div);
   });
   count();
@@ -126,8 +127,8 @@ document.addEventListener('change',e=>{
   const mv=e.target.dataset.move;
   if(mv){ const orig=DATA.groups.find(g=>g.items.some(i=>i.title===mv)).section; if(e.target.value===orig) delete MOVE[mv]; else MOVE[mv]=e.target.value; save(); render(); filter(); moved(); return; }
   const t=e.target.dataset.title; if(!t)return;
-  e.target.checked?OFF.delete(t):OFF.add(t);
-  e.target.closest('label').classList.toggle('off',!e.target.checked); save(); count();
+  e.target.checked?OFF.add(t):OFF.delete(t);
+  e.target.closest('label').classList.toggle('off',e.target.checked); save(); count();
 });
 document.addEventListener('click',e=>{
   const gi=e.target.dataset.untick; if(gi===undefined)return;
@@ -267,10 +268,10 @@ function buildPDF(FS,L,groups,pages,draw){
   return {doc, fits:!overflow && page<=2, pages:page};
 }
 document.getElementById('pdf').onclick=makePDF;
-['xGift','xDel'].forEach(id=>{const el=document.getElementById(id); try{el.checked=localStorage.getItem('atf-'+id)==='1'}catch(e){} el.addEventListener('change',()=>{try{localStorage.setItem('atf-'+id,el.checked?'1':'0')}catch(e){}})});
+
 
 fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(async d=>{DATA=d;
-  if(location.search.includes('export=1')){ OFF=new Set(); render(); const L=await logoData(); document.body.setAttribute('data-pdf',bestPDF(L).output('datauristring')); return; } document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify. Your ticks are remembered on this computer.`; render(); moved();})
+  if(location.search.includes('export=1')){ OFF=new Set(); render(); const L=await logoData(); document.body.setAttribute('data-pdf',bestPDF(L).output('datauristring')); return; } document.getElementById('asat').textContent=`Stock as at ${fmtDate(d.date)}, from Shopify.`; render(); moved();})
  .catch(()=>{document.getElementById('asat').textContent='The product list could not be loaded. Please refresh the page.'});
 </script>
 </body>

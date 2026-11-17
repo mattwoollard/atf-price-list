@@ -1,5 +1,5 @@
 {
- "date": "2026-11-17",
+ "date": "2026-11-18",
  "statement": "Not everything we grow is on this list. We also have a large range of groundcovers, perennials, small shrubs, herbs and garden products on site, so come in and have a look or give us a call.",
  "groups": [
   {
@@ -38,7 +38,7 @@
     },
     {
      "title": "Acer palmatum \"Tamukeyama'",
-     "name": "palmatum \"Tamukeyama'",
+     "name": "palmatum \"Tamukeyama\"",
      "prices": "$290 (1 left)",
      "note": ""
     },
@@ -68,8 +68,8 @@
     },
     {
      "title": "Acer palmatum weeping assorted OG",
-     "name": "palmatum weeping assorted OG",
-     "prices": "20cm $80 (1 left)",
+     "name": "palmatum weeping, assorted",
+     "prices": "14cm Beni Hoshi $55 (1 left), 14cm Garnet $65 (2 left), 20cm Crimson Queen $80 (1 left)",
      "note": ""
     }
    ]
@@ -284,7 +284,7 @@
    "items": [
     {
      "title": "Fraxinus angustifolia “Raywood Claret Ash”",
-     "name": "angustifolia “Raywood Claret Ash”",
+     "name": "angustifolia \"Raywood Claret Ash\"",
      "prices": "23cm $60 (2 left), 30cm $120 (1 left), 30cm $140",
      "note": ""
     },
@@ -296,7 +296,7 @@
     },
     {
      "title": "Fraxinus pennsylvanica “Cimmaron Ash”",
-     "name": "pennsylvanica “Cimmaron Ash”",
+     "name": "pennsylvanica \"Cimmaron Ash\"",
      "prices": "40cm $265 (1 left)",
      "note": ""
     }
@@ -320,7 +320,7 @@
     },
     {
      "title": "Ginkgo biloba “Mariken“",
-     "name": "biloba “Mariken“",
+     "name": "biloba \"Mariken\"",
      "prices": "25cm $90 (3 left), 30cm standard $300 (2 left), 40cm $495 (1 left)",
      "note": ""
     }
@@ -680,7 +680,7 @@
     },
     {
      "title": "Olea europea\"Bambalina\"",
-     "name": "europea\"Bambalina\"",
+     "name": "europea \"Bambalina\"",
      "prices": "30cm $90 (1 left)",
      "note": ""
     }
@@ -688,7 +688,7 @@
   },
   {
    "section": "TREES",
-   "group": "PAROTIA (Persian ironwood)",
+   "group": "PARROTIA (Persian ironwood)",
    "items": [
     {
      "title": "Parotia persica \"Persian Witch Hazel\"",
@@ -704,7 +704,7 @@
    "items": [
     {
      "title": "Pinus fexilis \"Vanderwolfs Pyramid\"",
-     "name": "fexilis \"Vanderwolfs Pyramid\"",
+     "name": "flexilis \"Vanderwolfs Pyramid\"",
      "prices": "$65 (1 left)",
      "note": ""
     },
@@ -754,7 +754,7 @@
   },
   {
    "section": "TREES",
-   "group": "PODOCARPUS (Plum pine)",
+   "group": "PODOCARPUS",
    "items": [
     {
      "title": "Podocarpus macrophylla \"Buddhist Pine\"",
@@ -800,7 +800,7 @@
    "items": [
     {
      "title": "Pyrus betulifolia \"Southworth Dancer'",
-     "name": "betulifolia \"Southworth Dancer'",
+     "name": "betulifolia \"Southworth Dancer\"",
      "prices": "$240 (3 left)",
      "note": "Grows 7x4.5m"
     },
@@ -818,7 +818,7 @@
     },
     {
      "title": "Pyrus ussuriensis  \"Manchurian Pear\"",
-     "name": "ussuriensis  \"Manchurian Pear\"",
+     "name": "ussuriensis \"Manchurian Pear\"",
      "prices": "30cm $120, 40cm $240 (5 left)",
      "note": "Great shade tree, grows 8x6m"
     }
@@ -880,7 +880,7 @@
   },
   {
    "section": "TREES",
-   "group": "ROBINIA (Robinia)",
+   "group": "ROBINIA (Black locust)",
    "items": [
     {
      "title": "Robinia pseudoacacia \"Golden Robinia\"",
@@ -890,7 +890,7 @@
     },
     {
      "title": "Robinia pseudoacacia \"Lace Lady'",
-     "name": "pseudoacacia \"Lace Lady'",
+     "name": "pseudoacacia \"Lace Lady\"",
      "prices": "25cm $120 (1 left)",
      "note": ""
     }
@@ -986,7 +986,7 @@
    "items": [
     {
      "title": "Banksia integrifolia “Coastal Banksia”",
-     "name": "integrifolia “Coastal Banksia”",
+     "name": "integrifolia \"Coastal Banksia\"",
      "prices": "50cm $495 (1 left)",
      "note": ""
     }
@@ -1118,7 +1118,7 @@
    "items": [
     {
      "title": "Hymenosporum flavum “Native Frangipani”",
-     "name": "flavum “Native Frangipani”",
+     "name": "flavum \"Native Frangipani\"",
      "prices": "30cm $120, 30cm $140 (1 left), 40cm $240 (1 left)",
      "note": ""
     }
@@ -1126,7 +1126,7 @@
   },
   {
    "section": "NATIVE TREES",
-   "group": "PODOCARPUS (Plum pine)",
+   "group": "PODOCARPUS",
    "items": [
     {
      "title": "Podocarpus elatus \"Illawarra Plum Pine\"",
@@ -1166,7 +1166,7 @@
    "items": [
     {
      "title": "Acacia cognata \"Lime Magik",
-     "name": "cognata \"Lime Magik",
+     "name": "cognata \"Lime Magik\"",
      "prices": "$240 (2 left)",
      "note": ""
     }
@@ -1240,6 +1240,18 @@
   },
   {
    "section": "SHRUBS",
+   "group": "HAMAMELIS (Witch hazel)",
+   "items": [
+    {
+     "title": "Pallida yellow witch hazel",
+     "name": "x intermedia \"Pallida\" (yellow witch hazel)",
+     "prices": "$120 (2 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "section": "SHRUBS",
    "group": "HYDRANGEA",
    "items": [
     {
@@ -1270,11 +1282,11 @@
   },
   {
    "section": "SHRUBS",
-   "group": "LEUC (Leucadendron and protea)",
+   "group": "LEUCADENDRON (Conebush)",
    "items": [
     {
      "title": "Leuc / protea / pw assorted",
-     "name": "/ protea / pw assorted",
+     "name": "assorted, with some protea",
      "prices": "20cm $40 (3 left), 25cm $50 (5 left)",
      "note": ""
     }
@@ -1288,18 +1300,6 @@
      "title": "Magnolia Fairy assorted",
      "name": "Fairy assorted",
      "prices": "20cm $40",
-     "note": ""
-    }
-   ]
-  },
-  {
-   "section": "SHRUBS",
-   "group": "PALLIDA (Witch hazel)",
-   "items": [
-    {
-     "title": "Pallida yellow witch hazel",
-     "name": "yellow witch hazel",
-     "prices": "$120 (2 left)",
      "note": ""
     }
    ]
@@ -1330,7 +1330,7 @@
   },
   {
    "section": "SHRUBS",
-   "group": "PODOCARPUS (Plum pine)",
+   "group": "PODOCARPUS",
    "items": [
     {
      "title": "Podocarpus blue/red gem",
@@ -1372,6 +1372,18 @@
      "title": "Syringa vulgaris \"Nadezhda/ Hope\"",
      "name": "vulgaris \"Nadezhda/ Hope\"",
      "prices": "20cm $50 (2 left)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "section": "SHRUBS",
+   "group": "TRACHELOSPERMUM (Star jasmine)",
+   "items": [
+    {
+     "title": "Trachelospermum Jasminoides \"Chinese Star Jasmine\"",
+     "name": "jasminoides \"Chinese Star Jasmine\"",
+     "prices": "50cm $300 (1 left)",
      "note": ""
     }
    ]
@@ -1562,7 +1574,7 @@
    "items": [
     {
      "title": "Citrus x Junos \" Yuzu Lemon\"",
-     "name": "x Junos \" Yuzu Lemon\"",
+     "name": "x Junos \"Yuzu Lemon\"",
      "prices": "20cm $60 (1 left)",
      "note": ""
     }
@@ -1592,7 +1604,7 @@
    "items": [
     {
      "title": "Hazelnut (unsure of variety)",
-     "name": "(unsure of variety)",
+     "name": "(unnamed variety)",
      "prices": "$90 (1 left)",
      "note": ""
     }
@@ -1634,7 +1646,7 @@
     },
     {
      "title": "Nectarine MYSTERY",
-     "name": "MYSTERY",
+     "name": "(unnamed variety)",
      "prices": "23cm $30 (1 left)",
      "note": ""
     },
@@ -1664,7 +1676,7 @@
     },
     {
      "title": "Pear “Packham Triumph”",
-     "name": "“Packham Triumph”",
+     "name": "\"Packham Triumph\"",
      "prices": "$80 (2 left)",
      "note": ""
     }
