@@ -1,5 +1,5 @@
 {
- "date": "2026-11-14",
+ "date": "2026-11-17",
  "statement": "Not everything we grow is on this list. We also have a large range of groundcovers, perennials, small shrubs, herbs and garden products on site, so come in and have a look or give us a call.",
  "groups": [
   {
@@ -109,15 +109,21 @@
      "note": ""
     },
     {
-     "title": "Acer rubrum / plat (unlabelled)",
-     "name": "rubrum / plat (unlabelled)",
-     "prices": "40cm $180",
+     "title": "Acer platinoides Crimson King",
+     "name": "platinoides Crimson King",
+     "prices": "40cm $220",
+     "note": ""
+    },
+    {
+     "title": "Acer rubrum Red Maple",
+     "name": "rubrum Red Maple",
+     "prices": "40cm $220",
      "note": ""
     },
     {
      "title": "Acer saccharum \"Sugar Maple\"",
      "name": "saccharum \"Sugar Maple\"",
-     "prices": "30cm $140 (1 left)",
+     "prices": "30cm $140 (1 left), 40cm $140 (1 left)",
      "note": ""
     },
     {
@@ -253,8 +259,8 @@
    "group": "CUPRESSUS (Cypress)",
    "items": [
     {
-     "title": "Cupressus glabra \"Raywoods weeper\"",
-     "name": "glabra \"Raywoods weeper\"",
+     "title": "Cupressus glabra \"Raywoods Weeper\"",
+     "name": "glabra \"Raywoods Weeper\"",
      "prices": "$65 (1 left)",
      "note": ""
     },
@@ -649,8 +655,8 @@
      "note": ""
     },
     {
-     "title": "Nyssa sylvatica \"black tupelo\"",
-     "name": "sylvatica \"black tupelo\"",
+     "title": "Nyssa sylvatica \"Black Tupelo\"",
+     "name": "sylvatica \"Black Tupelo\"",
      "prices": "$60 (1 left)",
      "note": ""
     }
@@ -835,8 +841,8 @@
      "note": ""
     },
     {
-     "title": "Quercus concordia \"golden english oak\"",
-     "name": "concordia \"golden english oak\"",
+     "title": "Quercus concordia \"Golden English Oak\"",
+     "name": "concordia \"Golden English Oak\"",
      "prices": "40cm $265 (2 left)",
      "note": ""
     },
@@ -847,8 +853,8 @@
      "note": ""
     },
     {
-     "title": "Quercus phellos \"willow Oak\"",
-     "name": "phellos \"willow Oak\"",
+     "title": "Quercus phellos \"Willow Oak\"",
+     "name": "phellos \"Willow Oak\"",
      "prices": "40cm $265 (2 left)",
      "note": ""
     },
@@ -979,8 +985,8 @@
    "group": "BANKSIA",
    "items": [
     {
-     "title": "Banksia integrifolia “coastal banksia”",
-     "name": "integrifolia “coastal banksia”",
+     "title": "Banksia integrifolia “Coastal Banksia”",
+     "name": "integrifolia “Coastal Banksia”",
      "prices": "50cm $495 (1 left)",
      "note": ""
     }
@@ -1227,7 +1233,7 @@
     {
      "title": "Cotinus coggygria \"Grace\"",
      "name": "coggygria \"Grace\"",
-     "prices": "20cm $40 (1 left), 30cm $140 (5 left)",
+     "prices": "20cm $40 (1 left), 30cm $140 (2 left)",
      "note": ""
     }
    ]
@@ -1461,7 +1467,7 @@
     {
      "title": "Photinia Robusta",
      "name": "Robusta",
-     "prices": "20cm $30 (5 left), 25cm $60, 40cm $220 (1 left), 50cm $450 (4 left)",
+     "prices": "20cm $30 (5 left), 25cm $60, 40cm $220 (1 left), 50cm $450 (3 left)",
      "note": ""
     },
     {
@@ -1483,7 +1489,7 @@
      "note": ""
     },
     {
-     "title": "Rhaphiolepsis indica \"Snow Maiden\"",
+     "title": "Rhaphiolepis indica \"Snow Maiden\"",
      "name": "indica \"Snow Maiden\"",
      "prices": "25cm $50 (1 left)",
      "note": ""
@@ -1645,15 +1651,15 @@
    "group": "PEAR",
    "items": [
     {
-     "title": "Pear dwarf \"Red Princess\"",
-     "name": "dwarf \"Red Princess\"",
-     "prices": "$60 (1 left)",
+     "title": "Pear \"Lemon Bergamot\"",
+     "name": "\"Lemon Bergamot\"",
+     "prices": "$60 (2 left)",
      "note": ""
     },
     {
-     "title": "Pear lemon bergamot",
-     "name": "lemon bergamot",
-     "prices": "$60 (2 left)",
+     "title": "Pear dwarf \"Red Princess\"",
+     "name": "dwarf \"Red Princess\"",
+     "prices": "$60 (1 left)",
      "note": ""
     },
     {
@@ -1675,8 +1681,8 @@
      "note": ""
     },
     {
-     "title": "Plum Ruby blood",
-     "name": "Ruby blood",
+     "title": "Plum \"Ruby blood\"",
+     "name": "\"Ruby blood\"",
      "prices": "$60 (1 left)",
      "note": ""
     }
